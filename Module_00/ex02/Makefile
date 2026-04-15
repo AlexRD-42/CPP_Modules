@@ -1,7 +1,7 @@
 # Configuration ------------------------------- #
 NAME = main
 VPATH = 
-SRCS = Contacts.cpp PhoneBook.cpp main.cpp
+SRCS = Account.cpp tests.cpp
 LDLIBS = 
 
 # Defaults ------------------------------------ #
