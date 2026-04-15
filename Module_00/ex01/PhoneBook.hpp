@@ -1,37 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   megaphone.cpp                                      :+:      :+:    :+:   */
+/*   PhoneBook.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adeimlin <adeimlin@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/06 16:02:43 by adeimlin          #+#    #+#             */
-/*   Updated: 2026/04/14 16:45:02 by adeimlin         ###   ########.fr       */
+/*   Created: 2026/04/14 17:20:58 by adeimlin          #+#    #+#             */
+/*   Updated: 2026/04/15 11:40:10 by adeimlin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
+#ifndef PHONEBOOK_HPP
+#define PHONEBOOK_HPP
 
-int	main(int argc, char **argv)
+#include <stdint.h>
+#include <stddef.h>
+
+#include "Contacts.hpp"
+
+class PhoneBook
 {
-	char	*str;
+public:
+	PhoneBook(void);
+	int			read(void);
 
-	if (argc <= 1)
-	{
-		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *\n";
-		return (0);
-	}
+private:
+	void		add_();
+	void		search_();
 
-	for (size_t i = 1; i < (size_t)argc; i++)
-	{
-		str = argv[i];
-		while (*str != 0)
-		{
-			*str = toupper(*str);
-			str++;
-		}
-		std::cout << argv[i];
-	}
-	std::cout << "\n";
-	return (0);
-}
+private:
+	size_t		cur_index_;
+
+public:
+	Contacts	contacts[8];
+};
+
+#endif

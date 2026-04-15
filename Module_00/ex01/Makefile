@@ -1,7 +1,7 @@
 # Configuration ------------------------------- #
-NAME = megaphone
+NAME = main
 VPATH = 
-SRCS = megaphone.cpp
+SRCS = Contacts.cpp PhoneBook.cpp main.cpp
 LDLIBS = 
 
 # Defaults ------------------------------------ #
