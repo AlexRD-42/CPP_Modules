@@ -1,0 +1,49 @@
+---
+Checks:
+  - '-*'
+
+  # Highest-value signal
+  - 'bugprone-*'
+  - 'clang-analyzer-*'
+  - 'performance-*'
+  - 'portability-*'
+
+  # Useful modernization, but avoid the more opinionated / high-churn ones
+  - 'modernize-*'
+  - '-modernize-use-trailing-return-type'
+  - '-modernize-use-ranges'
+  - '-modernize-use-std-format'
+  - '-modernize-use-std-numbers'
+  - '-modernize-use-std-print'
+
+  # Readability checks that usually pay for themselves
+  - 'readability-braces-around-statements'
+  - 'readability-else-after-return'
+  - 'readability-inconsistent-declaration-parameter-name'
+  - 'readability-misleading-indentation'
+  - 'readability-named-parameter'
+  - 'readability-redundant-*'
+  - 'readability-simplify-boolean-expr'
+  - 'readability-static-accessed-through-instance'
+
+  # Usually too noisy for a default rollout
+  - '-bugprone-easily-swappable-parameters'
+  - '-readability-function-cognitive-complexity'
+  - '-readability-function-size'
+  - '-readability-identifier-length'
+  - '-readability-magic-numbers'
+
+WarningsAsErrors: ''
+HeaderFilterRegex: '^(src|include|tests)/'
+ExcludeHeaderFilterRegex: '(^|/)(build|out|generated|external|third_party|vendor)/'
+FormatStyle: file
+InheritParentConfig: true
+SystemHeaders: false
+
+CheckOptions:
+  - key: readability-braces-around-statements.ShortStatementLines
+    value: '0'
+  - key: readability-named-parameter.InsertPlainNamesInForwardDecls
+    value: 'true'
+  - key: readability-else-after-return.WarnOnConditionVariables
+    value: 'false'

@@ -6,7 +6,7 @@
 /*   By: adeimlin <adeimlin@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/15 13:11:31 by adeimlin          #+#    #+#             */
-/*   Updated: 2026/04/15 15:03:50 by adeimlin         ###   ########.fr       */
+/*   Updated: 2026/04/16 09:59:28 by adeimlin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int Account::_totalNbWithdrawals = 0;
 // [19920104_091532] index:0;amount:42;created
 Account::Account(int initial_deposit)
 {
-	static int	index = 0;
+	static int	index = 0;	// So accIndex doesnt get affected by account closures
 
 	_accountIndex = index++;
 	_amount = initial_deposit;
@@ -80,7 +80,7 @@ void	Account::displayStatus(void) const
 void	Account::makeDeposit(int initial_deposit)
 {
 	_displayTimestamp();
-	if (initial_deposit <= 0)
+	if (initial_deposit <= 0)	// because apparently unsigned integers do not exist
 		return ;
 	std::cout << "index:" << _accountIndex << ";p_amount:" << _amount;
 	_amount += initial_deposit;
@@ -111,7 +111,7 @@ bool	Account::makeWithdrawal(int withdrawal)
 	return (true);
 }
 
-// ================= GETTERS AND SETTERS =============================
+// ================= GETTERS AND SETTERS >:) =============================
 
 int Account::getNbAccounts(void)
 {

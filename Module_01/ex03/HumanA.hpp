@@ -1,27 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.hpp                                         :+:      :+:    :+:   */
+/*   HumanA.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adeimlin <adeimlin@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/15 15:10:31 by adeimlin          #+#    #+#             */
-/*   Updated: 2026/04/15 19:37:00 by adeimlin         ###   ########.fr       */
+/*   Created: 2026/04/15 20:01:11 by adeimlin          #+#    #+#             */
+/*   Updated: 2026/04/15 22:33:11 by adeimlin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string>
+#include "Weapon.hpp"
 
-class Zombie
+class HumanA
 {
-public: 
-	Zombie();
-	Zombie(std::string name);
-	~Zombie();
-
 private:
-	std::string	name;
+	std::string name_;
+	Weapon weapon_;
+
 public:
-	void announce(void);
-	void setName(std::string name);
+	HumanA(std::string name, Weapon weapon);
+	void attack();
+
 };

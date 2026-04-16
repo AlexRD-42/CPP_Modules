@@ -1,40 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.cpp                                         :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adeimlin <adeimlin@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/15 15:14:49 by adeimlin          #+#    #+#             */
-/*   Updated: 2026/04/15 19:38:41 by adeimlin         ###   ########.fr       */
+/*   Updated: 2026/04/15 19:59:31 by adeimlin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include <stdint.h>
+#include <stddef.h>
+#include <string>
 #include <iostream>
 
-Zombie::Zombie(void)
+int	main()
 {
-	name = "sad boi";
-}
+	std::string	str = "HI THIS IS BRAIN";
+	std::string	*stringPTR = &str;
+	std::string	&stringREF = str;
 
-Zombie::Zombie(std::string new_name)
-{
-	name = new_name;
-}
+	std::cout << "Variable address:\t" << &str << std::endl;
+	std::cout << "Pointer address:\t" << &stringPTR << std::endl;
+	std::cout << "Reference address:\t" << &stringREF << std::endl;
 
-Zombie::~Zombie(void)
-{
-	std::cout << name << std::endl;
-}
-
-void Zombie::announce(void)
-{
-	std::cout << name << ": BraiiiiiiinnnzzzZ...\n";
-}
-
-// this is so stupid
-void Zombie::setName(std::string new_name)
-{
-	name = new_name;
+	std::cout << "Variable address:\t" << str << std::endl;
+	std::cout << "Pointer address:\t" << stringPTR << std::endl;
+	std::cout << "Reference address:\t" << stringREF << std::endl;
 }
