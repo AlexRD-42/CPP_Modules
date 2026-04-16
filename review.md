@@ -10,6 +10,11 @@
 - endl flushing
 - 
 
+# To remember
+ClassName() = default;	Calls the default constructor
+ClassName() = delete;	Forbids this constructor
+std::move, std::array, std::vector
+
 # To do
 - Split FT_UTILS in C and C++
 

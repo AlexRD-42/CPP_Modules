@@ -6,7 +6,7 @@
 /*   By: adeimlin <adeimlin@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/14 17:20:58 by adeimlin          #+#    #+#             */
-/*   Updated: 2026/04/15 13:09:18 by adeimlin         ###   ########.fr       */
+/*   Updated: 2026/04/16 15:06:21 by adeimlin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,9 +64,9 @@ void	PhoneBook::add_(void)
 
 void	PhoneBook::search_(void)
 {
-	size_t		index = SIZE_MAX;
-	size_t		j = 0;
-	const char	*msg[4] = {
+	size_t				index = SIZE_MAX;
+	size_t				j = 0;
+	static const char	*msg[4] = {
 		"I am confident in your capability of typing a number between 0 and 7\n",
 		"It really shouldn't be this hard... The number must be between 0 and 7\n",
 		"You're not very good at following instructions huh? Select a number between 0 and 7\n",

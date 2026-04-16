@@ -1,4 +1,5 @@
 .cache
+main
 **/build/**
 *.exe
 *.a

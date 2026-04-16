@@ -6,16 +6,21 @@
 /*   By: adeimlin <adeimlin@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/15 20:01:13 by adeimlin          #+#    #+#             */
-/*   Updated: 2026/04/15 20:20:39 by adeimlin         ###   ########.fr       */
+/*   Updated: 2026/04/16 13:32:42 by adeimlin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string>
+#include <utility>
 #include "Weapon.hpp"
 
-Weapon::Weapon(std::string weapon_type)
+Weapon::Weapon() : type("")
 {
-	type = weapon_type;
+}
+
+Weapon::Weapon(std::string weapon_type) :
+	type(weapon_type)
+{
 }
 
 const std::string& Weapon::getType() const

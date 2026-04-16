@@ -6,33 +6,34 @@
 /*   By: adeimlin <adeimlin@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/15 15:14:49 by adeimlin          #+#    #+#             */
-/*   Updated: 2026/04/16 13:37:00 by adeimlin         ###   ########.fr       */
+/*   Updated: 2026/04/16 16:14:01 by adeimlin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdint.h>
-#include <stddef.h>
-#include <string>
-#include "Weapon.hpp"
-#include "HumanA.hpp"
-#include "HumanB.hpp"
+#include "Harl.hpp"
+#include <iostream>
 
-int main()
+int main(int argc, char **argv)
 {
+	static const std::string	levels[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
+
+	if (argc != 2)
 	{
-		Weapon club = Weapon("crude spiked club");
-		HumanA bob("Bob", club);
-		bob.attack();
-		club.setType("some other type of club");
-		bob.attack();
+		std::cout << "[ Probably complaining about insignificant problems ]\n";
+		return (0);
 	}
+
+	Harl 		harl;
+	std::string	level = argv[1];
+	size_t 		n = 0;
+	while (n < 4 && levels[n] != level)
+		n++;
+	if (n == 4)
 	{
-		Weapon club = Weapon("crude spiked club");
-		HumanB jim("Jim");
-		jim.setWeapon(club);
-		jim.attack();
-		club.setType("some other type of club");
-		jim.attack();
+		std::cout << "[ Probably complaining about insignificant problems ]\n";
+		return (0);
 	}
-	return 0;
+	for (size_t i = 0; i <= n; i++)
+		harl.complain(levels[i]);
+	return (0);
 }

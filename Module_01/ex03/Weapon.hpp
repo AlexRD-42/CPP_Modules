@@ -6,9 +6,12 @@
 /*   By: adeimlin <adeimlin@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/15 20:00:34 by adeimlin          #+#    #+#             */
-/*   Updated: 2026/04/15 20:26:37 by adeimlin         ###   ########.fr       */
+/*   Updated: 2026/04/16 13:30:34 by adeimlin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#ifndef WEAPON_HPP
+# define WEAPON_HPP
 
 #include <string>
 
@@ -23,3 +26,5 @@ public:
 	const std::string&	getType() const;
 	void setType(std::string weapon_type);
 };
+
+#endif

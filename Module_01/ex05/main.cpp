@@ -1,31 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   HumanB.cpp                                         :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adeimlin <adeimlin@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/15 20:01:08 by adeimlin          #+#    #+#             */
-/*   Updated: 2026/04/16 13:46:47 by adeimlin         ###   ########.fr       */
+/*   Created: 2026/04/15 15:14:49 by adeimlin          #+#    #+#             */
+/*   Updated: 2026/04/16 16:00:55 by adeimlin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include <string>
-#include "HumanB.hpp"
+#include "Harl.hpp"
 
-HumanB::HumanB(std::string name) :
-	name_(name),
-	weapon_(NULL)
+int main()
 {
-}
+	Harl harl;
 
-void HumanB::attack()
-{
-	std::cout << name_ << " attacks with their " << weapon_->getType() << "\n";
-}
-
-void HumanB::setWeapon(Weapon &type)
-{
-	weapon_ = &type;
+	harl.complain("some_value");
+	harl.complain("warn");
+	harl.complain("DEBG");
+	harl.complain("debug");
+	harl.complain("");
+	harl.complain("DEBUG");
+	harl.complain("INFO");
+	harl.complain("WARNING");
+	harl.complain("ERROR");
 }

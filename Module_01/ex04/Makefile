@@ -1,7 +1,7 @@
 # Configuration ------------------------------- #
 NAME = main
 VPATH = 
-SRCS = main.cpp HumanA.cpp HumanB.cpp Weapon.cpp
+SRCS = main.cpp
 LDLIBS = 
 
 # Defaults ------------------------------------ #
