@@ -6,12 +6,10 @@
 /*   By: adeimlin <adeimlin@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/16 14:56:40 by adeimlin          #+#    #+#             */
-/*   Updated: 2026/04/16 16:07:53 by adeimlin         ###   ########.fr       */
+/*   Updated: 2026/04/16 16:14:57 by adeimlin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// #include <stdint.h>
-// #include <stddef.h>
 #include <string>
 #include <iostream>
 #include "Harl.hpp"

@@ -6,34 +6,24 @@
 /*   By: adeimlin <adeimlin@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/15 15:14:49 by adeimlin          #+#    #+#             */
-/*   Updated: 2026/04/16 16:15:29 by adeimlin         ###   ########.fr       */
+/*   Updated: 2026/04/17 15:20:37 by adeimlin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Harl.hpp"
 #include <iostream>
+#include "Fixed.hpp"
 
-int main(int argc, char **argv)
+int main( void )
 {
-	static const std::string	levels[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
+	Fixed 		a;
+	Fixed const b( Fixed( 5.05f ) * Fixed( 2 ) );
 
-	if (argc != 2)
-	{
-		std::cout << "[ Probably complaining about insignificant problems ]\n";
-		return (0);
-	}
-
-	Harl 		harl;
-	std::string	level = argv[1];
-	size_t 		n = 0;
-	while (n < 4 && levels[n] != level)
-		n++;
-	if (n == 4)
-	{
-		std::cout << "[ Probably complaining about insignificant problems ]\n";
-		return (0);
-	}
-	for (size_t i = 0; i <= n; i++)
-		harl.complain(levels[i]);
-	return (0);
+	std::cout << a << std::endl;
+	std::cout << ++a << std::endl;
+	std::cout << a << std::endl;
+	std::cout << a++ << std::endl;
+	std::cout << a << std::endl;
+	std::cout << b << std::endl;
+	std::cout << Fixed::max( a, b ) << std::endl;
+	return 0;
 }
