@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Contacts.cpp                                       :+:      :+:    :+:   */
+/*   Contact.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adeimlin <adeimlin@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/15 10:52:33 by adeimlin          #+#    #+#             */
-/*   Updated: 2026/04/15 13:05:33 by adeimlin         ###   ########.fr       */
+/*   Updated: 2026/04/20 12:34:17 by adeimlin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,15 +17,15 @@
 #include <iomanip>
 #include <limits>
 
-#include "Contacts.hpp"
+#include "Contact.hpp"
 
-Contacts::Contacts(void)
+Contact::Contact(void)
 {
-	memset(Contacts::first_name, 0, 32);
-	memset(Contacts::last_name, 0, 32);
-	memset(Contacts::nickname, 0, 32);
-	memset(Contacts::phone, 0, 32);
-	memset(Contacts::secret, 0, 32);
+	memset(Contact::first_name, 0, 32);
+	memset(Contact::last_name, 0, 32);
+	memset(Contact::nickname, 0, 32);
+	memset(Contact::phone, 0, 32);
+	memset(Contact::secret, 0, 32);
 }
 
 static
@@ -51,13 +51,13 @@ size_t	stt_read_input(const char *msg, char *dst, size_t length)
 	return (str_len);
 }
 
-void	Contacts::add_contact(void)
+void	Contact::add_contact(void)
 {
-	stt_read_input("Insert the first name:\n", Contacts::first_name, 32);
-	stt_read_input("Insert the last name:\n", Contacts::last_name, 32);
-	stt_read_input("Insert the nickname:\n", Contacts::nickname, 32);
-	stt_read_input("Insert the phone number:\n", Contacts::phone, 32);
-	stt_read_input("Insert the darkest secret:\n", Contacts::secret, 32);
+	stt_read_input("Insert the first name:\n", Contact::first_name, 32);
+	stt_read_input("Insert the last name:\n", Contact::last_name, 32);
+	stt_read_input("Insert the nickname:\n", Contact::nickname, 32);
+	stt_read_input("Insert the phone number:\n", Contact::phone, 32);
+	stt_read_input("Insert the darkest secret:\n", Contact::secret, 32);
 }
 
 static
@@ -77,28 +77,28 @@ void	stt_print_trunc(const char *src)
 	std::cout << std::setw(10) << std::right << buffer;
 }
 
-void	Contacts::print_short(size_t index)
+void	Contact::print_short(size_t index)
 {
 	std::cout << std::setw(10) << std::right << index;
 	std::cout << "|";
-	stt_print_trunc(Contacts::first_name);
+	stt_print_trunc(Contact::first_name);
 	std::cout << "|";
-	stt_print_trunc(Contacts::last_name);
+	stt_print_trunc(Contact::last_name);
 	std::cout << "|";
-	stt_print_trunc(Contacts::nickname);
+	stt_print_trunc(Contact::nickname);
 	std::cout << std::endl;
 }
 
-void	Contacts::print_long()
+void	Contact::print_long()
 {
-	if (Contacts::first_name[0] == 0)
+	if (Contact::first_name[0] == 0)
 	{
 		std::cout << "That contact does not exist yet\n";
 		return ;
 	}
-	std::cout << Contacts::first_name << std::endl;
-	std::cout << Contacts::last_name << std::endl;
-	std::cout << Contacts::nickname << std::endl;
-	std::cout << Contacts::phone << std::endl;
-	std::cout << Contacts::secret << std::endl;
+	std::cout << Contact::first_name << std::endl;
+	std::cout << Contact::last_name << std::endl;
+	std::cout << Contact::nickname << std::endl;
+	std::cout << Contact::phone << std::endl;
+	std::cout << Contact::secret << std::endl;
 }

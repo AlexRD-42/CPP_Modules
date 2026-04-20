@@ -6,7 +6,7 @@
 /*   By: adeimlin <adeimlin@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/14 17:20:58 by adeimlin          #+#    #+#             */
-/*   Updated: 2026/04/15 11:40:10 by adeimlin         ###   ########.fr       */
+/*   Updated: 2026/04/20 12:34:07 by adeimlin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include <stdint.h>
 #include <stddef.h>
 
-#include "Contacts.hpp"
+#include "Contact.hpp"
 
 class PhoneBook
 {
@@ -32,7 +32,7 @@ private:
 	size_t		cur_index_;
 
 public:
-	Contacts	contacts[8];
+	Contact	contacts[8];
 };
 
 #endif

@@ -1,25 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Contacts.hpp                                       :+:      :+:    :+:   */
+/*   Contact.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adeimlin <adeimlin@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/14 17:20:58 by adeimlin          #+#    #+#             */
-/*   Updated: 2026/04/15 12:12:30 by adeimlin         ###   ########.fr       */
+/*   Updated: 2026/04/20 12:33:20 by adeimlin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CONTACTS_HPP
-#define CONTACTS_HPP
+#ifndef CONTACT_HPP
+#define CONTACT_HPP
 
 #include <stdint.h>
 #include <stddef.h>
 
-class Contacts
+class Contact
 {
 public:
-	Contacts();
+	Contact();
 	void	add_contact(void);
 	void	print_short(size_t index);
 	void	print_long(void);
