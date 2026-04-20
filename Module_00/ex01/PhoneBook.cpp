@@ -6,7 +6,7 @@
 /*   By: adeimlin <adeimlin@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/14 17:20:58 by adeimlin          #+#    #+#             */
-/*   Updated: 2026/04/20 12:34:05 by adeimlin         ###   ########.fr       */
+/*   Updated: 2026/04/20 09:54:57 by adeimlin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ void	PhoneBook::add_(void)
 	Contact	new_contact;
 
 	new_contact.add_contact();
-	PhoneBook::Contact[cur_index_] = new_contact;
+	PhoneBook::contacts[cur_index_] = new_contact;
 	cur_index_ = (cur_index_ + 1) % 8;
 }
 
@@ -73,7 +73,7 @@ void	PhoneBook::search_(void)
 		"I can do this all day... Type in a number between 0 and the number of days in a week\n"};
 
 	for (size_t i = 0; i < 8; i++)
-		PhoneBook::Contact[i].print_short(i);
+		PhoneBook::contacts[i].print_short(i);
 	std::cout << "Select an index from 0 to 7\n";
 	while (true)
 	{
@@ -85,5 +85,5 @@ void	PhoneBook::search_(void)
 		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 		j = (j + 1) % 4;
 	}
-	PhoneBook::Contact[index].print_long();
+	PhoneBook::contacts[index].print_long();
 }

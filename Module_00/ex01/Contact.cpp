@@ -6,7 +6,7 @@
 /*   By: adeimlin <adeimlin@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/15 10:52:33 by adeimlin          #+#    #+#             */
-/*   Updated: 2026/04/20 12:34:17 by adeimlin         ###   ########.fr       */
+/*   Updated: 2026/04/20 09:55:08 by adeimlin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 #include <iostream>
 #include <iomanip>
 #include <limits>
-
 #include "Contact.hpp"
 
 Contact::Contact(void)

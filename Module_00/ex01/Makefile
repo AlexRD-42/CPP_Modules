@@ -1,5 +1,5 @@
 # Configuration ------------------------------- #
-NAME = main
+NAME = phonebook
 VPATH = 
 SRCS = Contact.cpp PhoneBook.cpp main.cpp
 LDLIBS = 
