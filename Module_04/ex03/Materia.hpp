@@ -1,35 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Contact.hpp                                        :+:      :+:    :+:   */
+/*   Materia.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adeimlin <adeimlin@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/14 17:20:58 by adeimlin          #+#    #+#             */
-/*   Updated: 2026/04/20 22:12:11 by adeimlin         ###   ########.fr       */
+/*   Created: 2026/04/28 16:42:48 by adeimlin          #+#    #+#             */
+/*   Updated: 2026/04/28 17:01:55 by adeimlin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CONTACT_HPP
-#define CONTACT_HPP
+#include <string>
 
-#include <stdint.h>
-#include <stddef.h>
-
-class Contact
+class Ice : AMateria
 {
-private:
-	char	first_name[32];
-	char	last_name[32];
-	char	nickname[32];
-	char	phone[32];
-	char	secret[32];
-	
-public:
-	Contact();
-	void	print_short(size_t index);
-	void	print_long(void);
-	void	add_contact(void);
-};
+protected:
 
-#endif
+public:
+	
+};

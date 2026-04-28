@@ -5,7 +5,7 @@
 		"label": "build",
 		"type": "shell",
 		"command": "make",
-		"options": {"cwd": "${workspaceFolder}/Module_02/ex03"},
+		"options": {"cwd": "${workspaceFolder}/Module_03/ex02"},
 		"args": ["compdb"],
 		"group": { "kind": "build", "isDefault": true },
     }

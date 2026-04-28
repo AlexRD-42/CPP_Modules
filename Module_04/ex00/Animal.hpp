@@ -1,35 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Contact.hpp                                        :+:      :+:    :+:   */
+/*   Animal.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adeimlin <adeimlin@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/14 17:20:58 by adeimlin          #+#    #+#             */
-/*   Updated: 2026/04/20 22:12:11 by adeimlin         ###   ########.fr       */
+/*   Created: 2026/04/28 16:19:22 by adeimlin          #+#    #+#             */
+/*   Updated: 2026/04/28 16:19:23 by adeimlin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CONTACT_HPP
-#define CONTACT_HPP
+#ifndef ANIMAL_HPP
+# define ANIMAL_HPP
 
-#include <stdint.h>
-#include <stddef.h>
+# include <iostream>
+# include <string>
 
-class Contact
+class Animal
 {
-private:
-	char	first_name[32];
-	char	last_name[32];
-	char	nickname[32];
-	char	phone[32];
-	char	secret[32];
-	
+protected:
+	std::string type;
+
 public:
-	Contact();
-	void	print_short(size_t index);
-	void	print_long(void);
-	void	add_contact(void);
+	Animal(void);
+	Animal(const Animal& other);
+	Animal& operator=(const Animal& other);
+	virtual ~Animal(void);
+
+	std::string getType(void) const;
+	virtual void makeSound(void) const;
 };
 
 #endif

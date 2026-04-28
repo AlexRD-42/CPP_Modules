@@ -1,35 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Contact.hpp                                        :+:      :+:    :+:   */
+/*   ICharacter.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adeimlin <adeimlin@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/14 17:20:58 by adeimlin          #+#    #+#             */
-/*   Updated: 2026/04/20 22:12:11 by adeimlin         ###   ########.fr       */
+/*   Created: 2026/04/28 16:53:26 by adeimlin          #+#    #+#             */
+/*   Updated: 2026/04/28 17:05:24 by adeimlin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CONTACT_HPP
-#define CONTACT_HPP
+#pragma once
 
-#include <stdint.h>
-#include <stddef.h>
+#include <string>
 
-class Contact
+class AMateria;
+
+class ICharacter
 {
-private:
-	char	first_name[32];
-	char	last_name[32];
-	char	nickname[32];
-	char	phone[32];
-	char	secret[32];
-	
 public:
-	Contact();
-	void	print_short(size_t index);
-	void	print_long(void);
-	void	add_contact(void);
+	virtual ~ICharacter() {}
+	virtual std::string const & getName() const = 0;
+	virtual void equip(AMateria* m) = 0;
+	virtual void unequip(int idx) = 0;
+	virtual void use(int idx, ICharacter& target) = 0;
 };
 
-#endif
+#include "AMateria.hpp"

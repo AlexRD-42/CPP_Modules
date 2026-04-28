@@ -10,9 +10,11 @@ Checks: >-
   -modernize-redundant-void-arg,
   -modernize-use-trailing-return-type,
   -modernize-avoid-c-arrays,
+  -modernize-use-using,
   cert-*,
   -cert-err58-cpp,
   misc-*,
+  -misc-definitions-in-headers,
 
 WarningsAsErrors: ''
 HeaderFilterRegex: '^(src|include|tests|sources)/'

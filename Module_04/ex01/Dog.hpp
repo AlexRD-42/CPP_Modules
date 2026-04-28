@@ -1,35 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Contact.hpp                                        :+:      :+:    :+:   */
+/*   Dog.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adeimlin <adeimlin@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/14 17:20:58 by adeimlin          #+#    #+#             */
-/*   Updated: 2026/04/20 22:12:11 by adeimlin         ###   ########.fr       */
+/*   Created: 2026/04/28 16:24:52 by adeimlin          #+#    #+#             */
+/*   Updated: 2026/04/28 16:24:53 by adeimlin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CONTACT_HPP
-#define CONTACT_HPP
+#ifndef DOG_HPP
+# define DOG_HPP
 
-#include <stdint.h>
-#include <stddef.h>
+# include "Animal.hpp"
+# include "Brain.hpp"
 
-class Contact
+class Dog : public Animal
 {
 private:
-	char	first_name[32];
-	char	last_name[32];
-	char	nickname[32];
-	char	phone[32];
-	char	secret[32];
-	
+	Brain* brain;
+
 public:
-	Contact();
-	void	print_short(size_t index);
-	void	print_long(void);
-	void	add_contact(void);
+	Dog(void);
+	Dog(const Dog& other);
+	Dog& operator=(const Dog& other);
+	virtual ~Dog(void);
+
+	void makeSound(void) const;
+	void setIdea(int index, const std::string& idea);
+	std::string getIdea(int index) const;
+	const Brain* getBrainAddress(void) const;
 };
 
 #endif

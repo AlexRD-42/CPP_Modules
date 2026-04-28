@@ -1,35 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Contact.hpp                                        :+:      :+:    :+:   */
+/*   DiamondTrap.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adeimlin <adeimlin@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/14 17:20:58 by adeimlin          #+#    #+#             */
-/*   Updated: 2026/04/20 22:12:11 by adeimlin         ###   ########.fr       */
+/*   Created: 2026/04/22 15:44:39 by adeimlin          #+#    #+#             */
+/*   Updated: 2026/04/27 12:54:56 by adeimlin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CONTACT_HPP
-#define CONTACT_HPP
+#ifndef DIAMONDTRAP_HPP
+# define DIAMONDTRAP_HPP
 
-#include <stdint.h>
-#include <stddef.h>
+#include <string>
+#include "FragTrap.hpp"
+#include "ScavTrap.hpp"
 
-class Contact
+class DiamondTrap : public FragTrap, public ScavTrap
 {
 private:
-	char	first_name[32];
-	char	last_name[32];
-	char	nickname[32];
-	char	phone[32];
-	char	secret[32];
-	
+	std::string	name;
+
 public:
-	Contact();
-	void	print_short(size_t index);
-	void	print_long(void);
-	void	add_contact(void);
+	DiamondTrap();
+	DiamondTrap(std::string name);
+	~DiamondTrap();
+	DiamondTrap(const DiamondTrap& other);
+
+	DiamondTrap& operator=(const DiamondTrap& other);
+
+	void whoAmI();
+	void attack(const std::string& target);
 };
 
 #endif
