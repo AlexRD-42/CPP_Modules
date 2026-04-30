@@ -1,73 +1,61 @@
-# Review
-- Concept of lvalues and rvalues
-- Return and failure states of std functions
-- Error handling in C++, throw, catch and exceptions
-- STD Move
-- How to get more familiar with std library functions
-- Member initializations
-- STD::String, stringview and char interoperability
-- Unique ptr, shared ptr
-- endl flushing
-- 
+# Style Guidelines
+Class/Struct names:	PascalCase
+Booleans: 			Predicate names like is_visible, has_focus, can_jump
 
-# To remember
-ClassName() = default;	Calls the default constructor
-ClassName() = delete;	Forbids this constructor
-std::move, std::array, std::vector
+`k_` — Constant Variable
+`g_` — Global variable
+`s_` — Static variable or function
+`m_` — Non-static class member variable
 
-# To do
-- Split FT_UTILS in C and C++
+`x_` — Local static variable
+`e_` — Enumerated constant type
+`t_` — Template argument
 
-# To Learn
-- gotos, function caching (instruction cache misses, code memory)
-- batch rendering
-- your old matlab functions from linear systems
-- Asserts, constexpr, exceptions and trycatch, NDEBUG ifdefs
-- look up dual-issue, superscalar, and CPU pipelines if you want a REAL deep dive
-- constructing floats in hardware registers, why do compilers load from memory
-- 
-  
-  
-# Style guidelines
-- Member variables with trailing underscore (e.g. name_)
-- Constants with k prefix (kConstant)
-- 
+stt_ = static
+stf_ = static filescope
 
+# Different types
+Static:
+	Variable (function scope)
+	Variable (global scope)
+	Variable (class scope)
+	Function
 
-# Delivery
-- Check makefile for name
-- Check makefile for -Werror
-- Include guards
+Attribute	(Public)
+Attribute	(Private)
+Variable	(Function parameter)
+Variable	(Function variable)
+Variable	(Constant):
 
+Class name
+Enums
 
-static __attribute__((always_inline)) __attribute__((const)) float cf(const float f)
-{
-    u32 r;
-    float f_out;
+# Modern Hungarian Notation
+The goal of this is to encode meaningful semantic information onto the variable, without adding too much noise
 
-    u32 i = *(u32 *) (&f);
+Axioms:
+- s_, m_ and g_ prefixes are commonly used in codebases
+- k is hard to encode because it can be part of all prefixes
 
-    if (!__builtin_constant_p(i)) {
-        return *(float *) (&i);
-    }
+I think the best approach might be to combine common underscore prefixes with regular prefixes to encode additional information
+For example, `g_kVar` is better than `gkVar`
 
-    u32 upper = (i >> 16);
-    u32 lower = (i >> 0) & 0xFFFF;
+The problem is with combining them. Assume we have k_ prefixes for constant and s_ prefixes for static. What happens for a static const?
+Is it `sk_var`? that looks weird because all prefixes are generally one letter
 
-    if ((i & 0xFFFF) == 0)
-	{
-        __asm__("lui %0, %1" : "=r"(r) : "K"(upper));
-	}
-    else if ((i & 0xFFFF0000) == 0)
-	{
-        __asm__("addiu %0, $0, %1" : "+r"(r) : "K"(lower));
-	}
-    else
-    {
-        __asm__("lui %0, %1" : "=r"(r) : "K"(upper));
-        __asm__("addiu %0, %0, %1" : "+r"(r) : "K"(lower));
-    }
+I think scope prefixes are high value, 
+`g_` Global variable
+`s_` Static variable or function
 
-    __asm__("mtc1 %1, %0" : "=f"(f_out) : "r"(r));
-    return f_out;
-}
+## Primitives:
+`b` : bool				: Could be identified instead with predicates like has_ is_ can_
+what is better, `is_visible`, `bVisible` or `isVisible`?
+`u`: unsigned integer	: Could be default to reduce pollution
+`i`: signed integer		:
+`f`: floating-point
+
+## Semantic
+n: count (presumed unsigned)
+k: constant
+
+`sm_knItems`

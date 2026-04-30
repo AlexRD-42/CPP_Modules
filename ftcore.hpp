@@ -6,30 +6,16 @@
 /*   By: adeimlin <adeimlin@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/16 20:52:02 by adeimlin          #+#    #+#             */
-/*   Updated: 2026/04/28 14:28:18 by adeimlin         ###   ########.fr       */
+/*   Updated: 2026/04/30 15:06:19 by adeimlin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
-// To remember: typeof, offset_of, circshift, complex numbers return
-// LQR , fixed point LUT pack, lut size differences
-// Immintrin types, overflow functions, ROTL and reverse
-// // consteval, constexpr, 
-
-#include <cmath>
-#ifdef __cplusplus
-	#include <cstddef>
-	#include <cstdint>
-	#include <climits>
-	#define restrict __restrict__
-#else
-	#include <stddef.h>
-	#include <stdint.h>
-	#include <stdbool.h>
-	#include <limits.h>
-	#define static_assert(cond, msg) _Static_assert(cond, msg)
-#endif
+#include <cstddef>
+#include <cstdint>
+#include <climits>
+#define restrict __restrict__
 
 // === Attributes ==========================================
 #define ALWAYS_INLINE	static inline __attribute__((always_inline))
@@ -120,9 +106,6 @@ typedef union
 #define ALIGN_DOWN(x, a)	((x) & ~((a) - 1))
 #define IS_POW2(x)			(((x) & ((x) - 1)) == 0)			// UB for x==0
 
-// #define PREV_POW2(x) ((typeof(x))1 << ((sizeof(x) * 8 - 1) - CLZ(x)))	// TODO: fix this
-// #define NEXT_POW2(x) ((typeof(x))1 << ((sizeof(x) * 8 + 1) - CLZ(x)))
-
 // === Builtins ============================================
 #define MEMCPY_BUILTIN(dst, src, n)		__builtin_memcpy(dst, src, n)
 #define MEMMOVE_BUILTIN(dst, src, n)	__builtin_memmove(dst, src, n)
@@ -143,17 +126,3 @@ typedef union
 #define BSWAP16(x)		__builtin_bswap16(x)
 #define BSWAP32(x)		__builtin_bswap32(x)
 #define BSWAP64(x)		__builtin_bswap64(x)
-#define BITREVERSE(x)	__builtin_bitreverse64(x)	// CLANG SPECIFIC
-
-// === New Stuff
-typedef _Complex float f32x2;
-#define F32X2_NEW(x, y) __builtin_complex((x), (y))
-#define F32X2_AT(pair, idx) __builtin_choose_expr(idx /(_idx == 0 || idx == 1), __real__(pair), __imag__(pair))
-
-#ifdef __cplusplus
-	#define CONST_SELECT(cond, a, b) ({typeof(a) x; if constexpr (cond) x = (a); else x = (b); x;})
-#else
-	#define CONST_SELECT(cond, a, b) __builtin_choose_expr(cond, a, b)
-#endif
-
-#define IS_CONST(x) __builtin_constant_p(x)

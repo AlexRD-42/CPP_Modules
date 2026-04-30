@@ -6,7 +6,7 @@
 /*   By: adeimlin <adeimlin@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/28 17:02:12 by adeimlin          #+#    #+#             */
-/*   Updated: 2026/04/28 17:27:41 by adeimlin         ###   ########.fr       */
+/*   Updated: 2026/04/30 19:24:53 by adeimlin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,65 +18,60 @@ class ICharacter;
 
 class AMateria
 {
-protected:
-	std::string	type;
-
 public: // Canonical Form and Constructors
 	AMateria();
-	~AMateria();
-	AMateria(const AMateria& other);
-	AMateria& operator=(const AMateria& other);
-	AMateria(const std::string &type);
+	AMateria(std::string const & type);
+	virtual ~AMateria() {};
+	AMateria(const AMateria &other);
+	AMateria& operator=(const AMateria &other);
 
-public: // Methods
-	const std::string	&getType() const;
+protected:
+	std::string	m_type;
+
+private:
+	
+public:
+	std::string const & getType() const;
 	virtual AMateria*	clone() const = 0;
 	virtual void		use(ICharacter& target);
 };
 
-#include "ICharacter.hpp"
+#include "AMateria.hpp"
 
-// Canonical Form and Constructors
-AMateria::AMateria(const std::string &type)
-{
-	
-}
-
-AMateria::~AMateria()
-{
-	
-}
-
-AMateria::AMateria()
-{
-		
-}
-
-AMateria& AMateria::operator=(const AMateria& other)
-{
-	if (this != &other)
-	{
-		this->name = other.name;
-		this->stamina = other.stamina;
-		this->health = other.health;
-		this->damage = other.damage;
-	}
-	return (*this);
-}
-
-AMateria::AMateria(const AMateria& other)
-{
-	*this = other;
-}
-
-// Methods
+// === Methods ================================================================
 const
 std::string	&AMateria::getType() const
 {
-	
+	return (this->m_type);
 }
 
 void	AMateria::use(ICharacter& target)
 {
-	
+	// Impossible. Only here because I have no control over the fn prototype
+}
+
+// === Canonical Form and Constructors ========================================
+AMateria::AMateria() :
+	m_type("Default")
+{
+}
+
+AMateria::AMateria(const std::string &type) :
+	m_type(type)
+{
+}
+
+AMateria::AMateria(const AMateria &other) :
+	m_type("")
+{
+	*this = other;
+}
+
+AMateria& AMateria::operator=(const AMateria &other)
+{
+	if (this != &other)
+	{
+		this->m_type = other.m_type;
+	}
+	return (*this);
 }
