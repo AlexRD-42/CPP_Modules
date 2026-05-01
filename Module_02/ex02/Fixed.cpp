@@ -6,36 +6,35 @@
 /*   By: adeimlin <adeimlin@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/17 12:04:29 by adeimlin          #+#    #+#             */
-/*   Updated: 2026/05/01 16:35:04 by adeimlin         ###   ########.fr       */
+/*   Updated: 2026/05/01 16:28:30 by adeimlin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <cmath>
-#include <stdint.h>
 #include "Fixed.hpp"
 
 // ========== Constructors ==========================================
 Fixed::Fixed()
 {
 	raw_bits = 0;
-	// std::cout << "Default constructor called\n";
+	//std::cout << "Default constructor called\n";
 }
 
 Fixed::~Fixed()
 {
-	// std::cout << "Destructor called\n";
+	//std::cout << "Destructor called\n";
 }
 
 Fixed::Fixed(const int raw_int)
 {
-	// std::cout << "Int constructor called\n";
+	//std::cout << "Int constructor called\n";
 	raw_bits = raw_int << fractional_bits;
 }
 
 Fixed::Fixed(const float raw_float)
 {
-	// std::cout << "Float constructor called\n";
+	//std::cout << "Float constructor called\n";
 
 	// t32	mem;
 	// mem.f32 = raw_float;
@@ -48,7 +47,7 @@ Fixed::Fixed(const float raw_float)
 Fixed::Fixed(const Fixed& other) :
 	raw_bits(other.raw_bits)
 {
-	// std::cout << "Copy constructor called\n";
+	//std::cout << "Copy constructor called\n";
 }
 
 // ========== Methods ===============================================
@@ -103,7 +102,7 @@ std::ostream&	operator<<(std::ostream& out, const Fixed& fixed)
 
 Fixed&	Fixed::operator=(const Fixed& other)
 {
-	// std::cout << "Copy assignment operator called\n";
+	//std::cout << "Copy assignment operator called\n";
 	if (this == &other)
 		return (*this);
 	this->raw_bits = other.raw_bits;

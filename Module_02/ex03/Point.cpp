@@ -6,12 +6,14 @@
 /*   By: adeimlin <adeimlin@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/20 10:37:26 by adeimlin          #+#    #+#             */
-/*   Updated: 2026/04/22 12:53:20 by adeimlin         ###   ########.fr       */
+/*   Updated: 2026/05/01 17:03:59 by adeimlin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ftcore.hpp"
 #include "Point.hpp"
+
+#define MIN(x, y)	((x) < (y) ? (x) : (y))
+#define MAX(x, y)	((x) > (y) ? (x) : (y))
 
 Point::Point() :
 	x(0),
@@ -34,9 +36,8 @@ Point::Point(const Point& other) :
 // But if the values are const how are they reassigned?
 Point&	Point::operator=(const Point& other)
 {
-	// if (this == &other)
-	// 	return (*this);
-	// return (other);
+	(void) other;
+	return (*this);
 }
 
 int32_t	Point::lerp(const Point &p0, const Point &p1, int32_t xt)
@@ -49,7 +50,7 @@ int32_t	Point::lerp(const Point &p0, const Point &p1, int32_t xt)
 	int64_t			k;
 
 	k = y0 - ((int64_t)dy * x0) / dx;
-	yt = ((int64_t)xt * dy) / dx  + k;
+	yt = ((int64_t)xt * dy) / dx + k;
 	return ((int32_t) yt);
 }
 

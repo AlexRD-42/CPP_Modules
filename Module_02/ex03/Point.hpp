@@ -6,7 +6,7 @@
 /*   By: adeimlin <adeimlin@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/20 10:37:48 by adeimlin          #+#    #+#             */
-/*   Updated: 2026/04/20 11:52:17 by adeimlin         ###   ########.fr       */
+/*   Updated: 2026/05/01 17:04:24 by adeimlin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define POINT_HPP
 
 #include "Fixed.hpp"
+#include <stdint.h>
 
 class Point
 {
@@ -31,4 +32,5 @@ public:
 	static bool		within_dx(const Point &p0, const Point &p1, const Point &target);
 	static bool		_bsp(Point const a, Point const b, Point const c, Point const point);
 };
+
 #endif

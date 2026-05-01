@@ -6,12 +6,11 @@
 /*   By: adeimlin <adeimlin@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/17 12:04:29 by adeimlin          #+#    #+#             */
-/*   Updated: 2026/04/17 15:53:03 by adeimlin         ###   ########.fr       */
+/*   Updated: 2026/05/01 16:22:56 by adeimlin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
-#include "ftcore.hpp"
 #include <cmath>
 #include "Fixed.hpp"
 
@@ -53,28 +52,6 @@ Fixed::Fixed(const Fixed& other) :
 
 // ========== Methods ===============================================
 
-Fixed&	Fixed::min(Fixed& a, Fixed& b)
-{
-	return (a < b ? a : b);
-}
-
-const
-Fixed&	Fixed::min(const Fixed& a, const Fixed& b)
-{
-	return (a < b ? a : b);
-}
-
-Fixed&	Fixed::max(Fixed& a, Fixed& b)
-{
-	return (a > b ? a : b);
-}
-
-const
-Fixed&	Fixed::max(const Fixed& a, const Fixed& b)
-{
-	return (a > b ? a : b);
-}
-
 int		Fixed::getRawBits() const
 {
 	return (raw_bits);
@@ -96,10 +73,6 @@ int	Fixed::toInt(void) const
 }
 
 // ========== Operators =============================================
-std::ostream&	operator<<(std::ostream& out, const Fixed& fixed)
-{
-	return (out << fixed.toFloat());
-}
 
 Fixed&	Fixed::operator=(const Fixed& other)
 {
@@ -110,98 +83,7 @@ Fixed&	Fixed::operator=(const Fixed& other)
 	return (*this);
 }
 
-bool	Fixed::operator>(const Fixed& other) const
+std::ostream&	operator<<(std::ostream& out, const Fixed& fixed)
 {
-	return (this->raw_bits > other.raw_bits);
-}
-
-bool	Fixed::operator<(const Fixed& other) const
-{
-	return (this->raw_bits < other.raw_bits);
-}
-
-bool	Fixed::operator>=(const Fixed& other) const
-{
-	return (this->raw_bits >= other.raw_bits);
-}
-
-bool	Fixed::operator<=(const Fixed& other) const
-{
-	return (this->raw_bits <= other.raw_bits);
-}
-
-bool	Fixed::operator==(const Fixed& other) const
-{
-	return (this->raw_bits == other.raw_bits);
-}
-
-bool	Fixed::operator!=(const Fixed& other) const
-{
-	return (this->raw_bits != other.raw_bits);	
-}
-
-Fixed	Fixed::operator+(const Fixed& other) const
-{
-	Fixed	result;
-
-	result.raw_bits = this->raw_bits + other.raw_bits;
-	return (result);
-}
-
-Fixed	Fixed::operator-(const Fixed& other) const
-{
-	Fixed	result;
-
-	result.raw_bits = this->raw_bits - other.raw_bits;
-	return (result);
-}
-
-Fixed	Fixed::operator*(const Fixed& other) const
-{
-	Fixed	result;
-	int64_t	value;
-
-	value = (int64_t)this->raw_bits * other.raw_bits;
-	value >>= fractional_bits;
-	result.raw_bits = (int32_t)value;
-	return (result);
-}
-
-Fixed	Fixed::operator/(const Fixed& other) const
-{
-	int64_t	value;
-	Fixed	result;
-
-	value = (int64_t)this->raw_bits << fractional_bits;
-	value /= other.raw_bits;
-	result.raw_bits = (int32_t)value;
-	return (result);
-}
-
-Fixed&	Fixed::operator++(void)
-{
-	this->raw_bits += 1;
-	return (*this);
-}
-
-Fixed&	Fixed::operator--(void)
-{
-	this->raw_bits -= 1;
-	return (*this);
-}
-
-Fixed	Fixed::operator++(int)
-{
-	Fixed	old = *this;
-
-	this->raw_bits += 1;
-	return (old);
-}
-
-Fixed	Fixed::operator--(int)
-{
-	Fixed	old = *this;
-
-	this->raw_bits -= 1;
-	return (old);
+	return (out << fixed.toFloat());
 }

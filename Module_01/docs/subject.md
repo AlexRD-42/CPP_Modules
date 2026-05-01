@@ -1,0 +1,348 @@
+# Chapter IV
+
+# Exercise 00: BraiiiiiiinnnzzzZ
+
+```
+Exercise: 00
+```
+```
+BraiiiiiiinnnzzzZ
+Directory: ex 00 /
+Files to Submit: Makefile, main.cpp, Zombie.{h, hpp}, Zombie.cpp,
+newZombie.cpp, randomChump.cpp
+Forbidden: None
+```
+First, implement a **Zombie** class. It has a private string attribute name.
+Add a member function void announce( void ); to the Zombie class. Zombies
+announce themselves as follows:
+
+```
+<name>: BraiiiiiiinnnzzzZ...
+```
+Do not print the angle brackets (< and >). For a zombie named Foo, the message
+would be:
+
+```
+Foo: BraiiiiiiinnnzzzZ...
+```
+```
+Then, implement the following two functions:
+```
+- Zombie* newZombie( std::string name );
+    This function creates a zombie, names it, and returns it so you can use it outside
+    of the function scope.
+- void randomChump( std::string name );
+    This function creates a zombie, names it, and makes it announce itself.
+
+Now, what is the actual point of the exercise? You have to determine in which case
+it is better to allocate zombies on the stack or the heap.
+
+Zombies must be destroyed when you no longer need them. The destructor must print
+a message with the name of the zombie for debugging purposes.
+
+
+# Chapter V
+
+# Exercise 01: Moar brainz!
+
+```
+Exercise: 01
+```
+```
+Moar brainz!
+Directory: ex 01 /
+Files to Submit: Makefile, main.cpp, Zombie.{h, hpp}, Zombie.cpp,
+zombieHorde.cpp
+Forbidden: None
+```
+```
+Time to create a horde of Zombies!
+```
+```
+Implement the following function in the appropriate file:
+```
+```
+Zombie* zombieHorde( int N, std::string name );
+```
+It must allocate N Zombie objects in a single allocation. Then, it must initialize the
+zombies, giving each of them the name passed as a parameter. The function returns a
+pointer to the first zombie.
+Implement your own tests to ensure that your zombieHorde() function works as ex-
+pected. Try calling announce() for each of the zombies.
+
+Do not forget to use delete to deallocate all the zombies and check for **memory
+leaks**.
+
+
+# Chapter VI
+
+# Exercise 02: HI THIS IS BRAIN
+
+```
+Exercise: 02
+```
+```
+HI THIS IS BRAIN
+Directory: ex 02 /
+Files to Submit: Makefile, main.cpp
+Forbidden: None
+```
+```
+Write a program that contains:
+```
+- A string variable initialized to "HI THIS IS BRAIN".
+- stringPTR: a pointer to the string.
+- stringREF: a reference to the string.
+
+```
+Your program must print:
+```
+- The memory address of the string variable.
+- The memory address held by stringPTR.
+- The memory address held by stringREF.
+
+```
+And then:
+```
+- The value of the string variable.
+- The value pointed to by stringPTR.
+- The value pointed to by stringREF.
+
+That’s all—no tricks. The goal of this exercise is to demystify references, which may
+seem completely new. Although there are some small differences, this is simply another
+syntax for something you already do: address manipulation.
+
+
+# Chapter VII
+
+# Exercise 03: Unnecessary violence
+
+```
+Exercise: 03
+```
+```
+Unnecessary violence
+Directory: ex 03 /
+Files to Submit: Makefile, main.cpp, Weapon.{h, hpp}, Weapon.cpp, HumanA.{h,
+hpp}, HumanA.cpp, HumanB.{h, hpp}, HumanB.cpp
+Forbidden: None
+```
+```
+Implement a Weapon class that has:
+```
+- A private attribute type, which is a string.
+- A getType() member function that returns a constant reference to type.
+- A setType() member function that sets type using the new value passed as a pa-
+    rameter.
+
+Now, create two classes: **HumanA** and **HumanB**. They both have a Weapon and
+a name. They also have a member function attack() that displays (without the angle
+brackets):
+
+```
+<name> attacks with their <weapon type>
+```
+```
+HumanA and HumanB are almost identical except for these two small details:
+```
+- While **HumanA** takes the Weapon in its constructor, **HumanB** does not.
+- **HumanB** may **not always** have a weapon, whereas **HumanA** will **always** be
+    armed.
+
+
+C++ - Module 01
+
+```
+Memory allocation, pointers to members,
+references and switch statements
+```
+If your implementation is correct, executing the following code will print an attack
+with "crude spiked club" followed by a second attack with "some other type of club" for
+both test cases:
+
+```
+int main()
+{
+{
+Weapon club = Weapon("crude spiked club");
+HumanA bob("Bob", club);
+bob.attack();
+club.setType("some other type of club");
+bob.attack();
+}
+{
+Weapon club = Weapon("crude spiked club");
+HumanB jim("Jim");
+jim.setWeapon(club);
+jim.attack();
+club.setType("some other type of club");
+jim.attack();
+}
+return 0;
+}
+```
+```
+Do not forget to check for memory leaks.
+```
+```
+In which case do you think it would be best to use a pointer to
+Weapon? And a reference to Weapon? Why? Think about it before
+starting this exercise.
+```
+
+# Chapter VIII
+
+# Exercise 04: Sed is for losers
+
+```
+Exercise: 04
+```
+```
+Sed is for losers
+Directory: ex 04 /
+Files to Submit: Makefile, main.cpp, *.cpp, *.{h, hpp}
+Forbidden: std::string::replace
+```
+Create a program that takes three parameters in the following order: a filename and
+two strings, s1 and s2.
+It must open the file <filename> and copy its content into a new file
+<filename>.replace, replacing every occurrence of s1 with s2.
+
+Using C file manipulation functions is forbidden and will be considered cheating. All
+the member functions of the class std::string are allowed, except replace. Use them
+wisely!
+
+Of course, handle unexpected inputs and errors. You must create and turn in your
+own tests to ensure that your program works as expected.
+
+
+# Chapter IX
+
+# Exercise 05: Harl 2.
+
+```
+Exercise: 05
+```
+```
+Harl 2.
+Directory: ex 05 /
+Files to Submit: Makefile, main.cpp, Harl.{h, hpp}, Harl.cpp
+Forbidden: None
+```
+Do you know Harl? We all do, don’t we? In case you don’t, find below the kind of
+comments Harl makes. They are classified by levels:
+
+- " **DEBUG** " level: Debug messages contain contextual information. They are mostly
+    used for problem diagnosis.
+    Example: _"I love having extra bacon for my 7XL-double-cheese-triple-pickle-special-_
+    _ketchup burger. I really do!"_
+- " **INFO** " level: These messages contain extensive information. They are helpful for
+    tracing program execution in a production environment.
+    Example: _"I cannot believe adding extra bacon costs more money. You didn’t put_
+    _enough bacon in my burger! If you did, I wouldn’t be asking for more!"_
+- " **WARNING** " level: Warning messages indicate a potential issue in the system.
+    However, it can be handled or ignored.
+    Example: _"I think I deserve to have some extra bacon for free. I’ve been coming for_
+    _years, whereas you started working here just last month."_
+- " **ERROR** " level: These messages indicate that an unrecoverable error has occurred.
+    This is usually a critical issue that requires manual intervention.
+    Example: _"This is unacceptable! I want to speak to the manager now."_
+
+
+C++ - Module 01
+
+```
+Memory allocation, pointers to members,
+references and switch statements
+```
+You are going to automate Harl. It won’t be difficult since he always says the same
+things. You have to create a **Harl** class with the following private member functions:
+
+- void debug( void );
+- void info( void );
+- void warning( void );
+- void error( void );
+
+**Harl** also has a public member function that calls the four member functions above
+depending on the level passed as a parameter:
+
+```
+void complain( std::string level );
+```
+The goal of this exercise is to use **pointers to member functions**. This is not a
+suggestion. Harl has to complain without using a forest of if/else if/else. He doesn’t
+think twice!
+
+Create and turn in tests to show that Harl complains a lot. You can use the examples
+of comments listed above in the subject or choose to use comments of your own.
+
+
+# Chapter X
+
+# Exercise 06: Harl filter
+
+```
+Exercise: 06
+```
+```
+Harl filter
+Directory: ex 06 /
+Files to Submit: Makefile, main.cpp, Harl.{h, hpp}, Harl.cpp
+Forbidden: None
+```
+Sometimes you don’t want to pay attention to everything Harl says. Implement a
+system to filter what Harl says depending on the log levels you want to listen to.
+
+Create a program that takes as a parameter one of the four levels. It will display all
+messages from this level and above. For example:
+
+$> ./harlFilter "WARNING"
+[ WARNING ]
+I think I deserve to have some extra bacon for free.
+I've been coming for years, whereas you started working here just last month.
+
+[ ERROR ]
+This is unacceptable! I want to speak to the manager now.
+
+$> ./harlFilter "I am not sure how tired I am today..."
+[ Probably complaining about insignificant problems ]
+
+Although there are several ways to deal with Harl, one of the most effective is to
+SWITCH it off.
+
+```
+Give the name harlFilter to your executable.
+```
+```
+You must use, and maybe discover, the switch statement in this exercise.
+```
+```
+You can pass this module without doing exercise 06.
+```
+
+# Chapter XI
+
+# Submission and peer-evaluation
+
+Turn in your assignment in your Git repository as usual. Only the work inside your repos-
+itory will be evaluated during the defense. Don’t hesitate to double-check the names of
+your folders and files to ensure they are correct.
+
+During the evaluation, a brief **modification of the project** may occasionally be re-
+quested. This could involve a minor behaviour change, a few lines of code to write or
+rewrite, or an easy-to-add feature.
+
+While this step may **not be applicable to every project** , you must be prepared for it
+if it is mentioned in the evaluation guidelines.
+
+This step is meant to verify your actual understanding of a specific part of the project.
+The modification can be performed in any development environment you choose (e.g.,
+your usual setup), and it should be feasible within a few minutes — unless a specific time
+frame is defined as part of the evaluation.
+You can, for example, be asked to make a small update to a function or script, modify a
+display, or adjust a data structure to store new information, etc.
+
+The details (scope, target, etc.) will be specified in the **evaluation guidelines** and may
+vary from one evaluation to another for the same project.
+
+
