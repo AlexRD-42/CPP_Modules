@@ -1,7 +1,7 @@
 # Configuration ------------------------------- #
 NAME = main
 VPATH = 
-SRCS = main.cpp 
+SRCS = main.cpp AMateria.cpp Character.cpp Cure.cpp Ice.cpp MateriaSource.cpp
 LDLIBS = 
 
 # Defaults ------------------------------------ #

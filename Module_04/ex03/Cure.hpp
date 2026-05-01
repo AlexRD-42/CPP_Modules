@@ -6,7 +6,7 @@
 /*   By: adeimlin <adeimlin@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/30 17:36:24 by adeimlin          #+#    #+#             */
-/*   Updated: 2026/05/01 17:29:41 by adeimlin         ###   ########.fr       */
+/*   Updated: 2026/05/01 18:41:22 by adeimlin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ class Cure : public AMateria
 {
 public: // Canonical Form and Constructors
 	Cure();
-	~Cure() {};
+	~Cure();
 	Cure(const Cure &other);
 	Cure& operator=(const Cure &other);
 

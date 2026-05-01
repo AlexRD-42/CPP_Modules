@@ -1,53 +1,56 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cure.cpp                                           :+:      :+:    :+:   */
+/*   AMateria.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adeimlin <adeimlin@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/05/01 17:28:12 by adeimlin          #+#    #+#             */
-/*   Updated: 2026/05/01 18:41:37 by adeimlin         ###   ########.fr       */
+/*   Created: 2026/05/01 18:08:11 by adeimlin          #+#    #+#             */
+/*   Updated: 2026/05/01 18:41:14 by adeimlin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Cure.hpp"
-#include "ICharacter.hpp"
-#include <string>
-#include <iostream>
+#include "AMateria.hpp"
 
 // === Methods ================================================================
-void	Cure::use(ICharacter& target)
+const
+std::string	&AMateria::getType() const
 {
-	std::cout << "* heals " << target.getName() << "'s wounds *\n";
+	return (this->m_type);
 }
 
-AMateria*	Cure::clone() const
+void	AMateria::use(ICharacter& target)
 {
-	return (new Cure(*this));	// And there we have it, the first hidden dynamic allocation, aka the first sin
+	(void) target;
+	// Impossible. Only here because I have no control over the fn prototype
 }
 
 // === Canonical Form and Constructors ========================================
-Cure::Cure() :
-	AMateria("cure")
+AMateria::AMateria() :
+	m_type("Default")
 {
 }
 
-Cure::~Cure()
+AMateria::~AMateria()
 {
 }
 
-Cure::Cure(const Cure &other) :
-	AMateria("cure")
+AMateria::AMateria(const std::string &type) :
+	m_type(type)
 {
-	(void) other;
-	//*this = other;
 }
 
-Cure& Cure::operator=(const Cure &other)
+AMateria::AMateria(const AMateria &other) :
+	m_type("")
+{
+	*this = other;
+}
+
+AMateria& AMateria::operator=(const AMateria &other)
 {
 	if (this != &other)
 	{
-		//this->type = other.type;
+		this->m_type = other.m_type;
 	}
 	return (*this);
 }

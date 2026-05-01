@@ -6,7 +6,7 @@
 /*   By: adeimlin <adeimlin@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/01 17:29:19 by adeimlin          #+#    #+#             */
-/*   Updated: 2026/05/01 17:29:32 by adeimlin         ###   ########.fr       */
+/*   Updated: 2026/05/01 18:41:56 by adeimlin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,14 @@ Ice::Ice() :
 {
 }
 
+Ice::~Ice()
+{
+}
+
 Ice::Ice(const Ice &other) :
 	AMateria("ice")
 {
+	(void) other;
 	//*this = other;
 }
 

@@ -6,7 +6,7 @@
 /*   By: adeimlin <adeimlin@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/28 16:24:57 by adeimlin          #+#    #+#             */
-/*   Updated: 2026/04/28 16:24:57 by adeimlin         ###   ########.fr       */
+/*   Updated: 2026/05/01 18:38:00 by adeimlin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -130,12 +130,14 @@ static void testSelfAssignmentAndBounds(void)
 {
 	Dog dog;
 	Cat cat;
+	Dog* dogPtr = &dog;
+	Cat* catPtr = &cat;
 
 	printSeparator("self-assignment and Brain bounds");
 	dog.setIdea(0, "Keep this dog idea");
 	cat.setIdea(0, "Keep this cat idea");
-	dog = dog;
-	cat = cat;
+	dog = *dogPtr;
+	cat = *catPtr;
 	std::cout << "dog idea after self-assignment: " << dog.getIdea(0) << std::endl;
 	std::cout << "cat idea after self-assignment: " << cat.getIdea(0) << std::endl;
 	dog.setIdea(-1, "invalid negative index");

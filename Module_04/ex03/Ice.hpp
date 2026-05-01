@@ -6,7 +6,7 @@
 /*   By: adeimlin <adeimlin@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/30 17:17:06 by adeimlin          #+#    #+#             */
-/*   Updated: 2026/05/01 17:29:28 by adeimlin         ###   ########.fr       */
+/*   Updated: 2026/05/01 18:41:45 by adeimlin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ class Ice : public AMateria
 {
 public: // Canonical Form and Constructors
 	Ice();
-	~Ice() {};
+	~Ice();
 	Ice(const Ice &other);
 	Ice& operator=(const Ice &other);
 
