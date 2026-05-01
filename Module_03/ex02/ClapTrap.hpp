@@ -6,7 +6,7 @@
 /*   By: adeimlin <adeimlin@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/22 13:08:33 by adeimlin          #+#    #+#             */
-/*   Updated: 2026/04/22 15:22:59 by adeimlin         ###   ########.fr       */
+/*   Updated: 2026/05/01 17:21:35 by adeimlin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,14 @@
 # define CLAPTRAP_HPP
 
 #include <string>
-#include "ftcore.hpp"
 
 class ClapTrap
 {
 protected:
 	std::string		name;
-	uint			health;
-	uint			stamina;
-	uint			damage;
+	unsigned int	health;
+	unsigned int	stamina;
+	unsigned int	damage;
 
 public:
 	ClapTrap(std::string _name);

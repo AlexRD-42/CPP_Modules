@@ -6,7 +6,7 @@
 /*   By: adeimlin <adeimlin@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/22 13:14:58 by adeimlin          #+#    #+#             */
-/*   Updated: 2026/04/22 18:31:16 by adeimlin         ###   ########.fr       */
+/*   Updated: 2026/05/01 17:20:34 by adeimlin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ ClapTrap::ClapTrap(std::string _name) :
 	std::cout << "(ClapTrap) " << _name << " constructor has been called\n";
 }
 
-// ClapTrap::ClapTrap(std::string _name, uint _health, uint _stamina, uint _damage) :
+// ClapTrap::ClapTrap(std::string _name, unsigned int _health, unsigned int _stamina, unsigned int _damage) :
 // 	name(_name),
 // 	health(_health),
 // 	stamina(_stamina),

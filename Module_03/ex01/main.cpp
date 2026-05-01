@@ -6,7 +6,7 @@
 /*   By: adeimlin <adeimlin@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/22 13:28:18 by adeimlin          #+#    #+#             */
-/*   Updated: 2026/04/22 15:30:53 by adeimlin         ###   ########.fr       */
+/*   Updated: 2026/05/01 17:30:43 by adeimlin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 #include <iostream>
 #include "ClapTrap.hpp"
 #include "ScavTrap.hpp"
-#include "ftcore.hpp"
 
 int	main(void)
 {
