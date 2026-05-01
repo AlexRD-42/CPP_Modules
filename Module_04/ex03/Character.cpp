@@ -6,7 +6,7 @@
 /*   By: adeimlin <adeimlin@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/01 18:08:29 by adeimlin          #+#    #+#             */
-/*   Updated: 2026/05/01 18:23:23 by adeimlin         ###   ########.fr       */
+/*   Updated: 2026/05/01 20:46:04 by adeimlin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,7 +107,10 @@ Character& Character::operator=(const Character &other)
 	if (this != &other)
 	{
 		for (size_t i = 0; i < MAX_BACKPACK; i++)
+		{
+			delete(this->m_backpack[i]);
 			this->m_backpack[i] = NULL;
+		}
 		for (size_t i = 0; i < kMaxSlots; i++)
 		{
 			delete this->m_slots[i];
@@ -119,7 +122,7 @@ Character& Character::operator=(const Character &other)
 		this->m_name = other.m_name;
 		this->m_backpackCount = other.m_backpackCount;
 		for (size_t i = 0; i < m_backpackCount; i++)
-			this->m_backpack[i] = other.m_backpack[i];
+			this->m_backpack[i] = other.m_backpack[i]->clone();
 	}
 	return (*this);
 }

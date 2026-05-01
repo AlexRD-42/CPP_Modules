@@ -6,7 +6,7 @@
 /*   By: adeimlin <adeimlin@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/01 18:08:11 by adeimlin          #+#    #+#             */
-/*   Updated: 2026/05/01 18:41:14 by adeimlin         ###   ########.fr       */
+/*   Updated: 2026/05/01 20:48:30 by adeimlin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ AMateria& AMateria::operator=(const AMateria &other)
 {
 	if (this != &other)
 	{
-		this->m_type = other.m_type;
+		//this->m_type = other.m_type;
 	}
 	return (*this);
 }

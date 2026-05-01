@@ -6,7 +6,7 @@
 /*   By: adeimlin <adeimlin@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/28 16:20:22 by adeimlin          #+#    #+#             */
-/*   Updated: 2026/04/28 16:20:23 by adeimlin         ###   ########.fr       */
+/*   Updated: 2026/05/01 18:46:34 by adeimlin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ public:
 	WrongAnimal(void);
 	WrongAnimal(const WrongAnimal& other);
 	WrongAnimal& operator=(const WrongAnimal& other);
-	virtual ~WrongAnimal(void);
+	~WrongAnimal(void);
 
 	std::string getType(void) const;
 	void makeSound(void) const;
