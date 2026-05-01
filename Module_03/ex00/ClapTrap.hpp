@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: adeimlin <adeimlin@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/22 13:08:33 by adeimlin          #+#    #+#             */
-/*   Updated: 2026/05/01 17:20:43 by adeimlin         ###   ########.fr       */
+/*   Created: 2026/05/01 17:48:49 by adeimlin          #+#    #+#             */
+/*   Updated: 2026/05/01 17:48:50 by adeimlin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,12 @@ private:
 	unsigned int	damage;
 
 public:
+	ClapTrap();
 	ClapTrap(std::string input_name);
+	ClapTrap(const ClapTrap& other);
+	ClapTrap&	operator=(const ClapTrap& other);
 	~ClapTrap();
+
 	void	attack(const std::string& target);
 	void	takeDamage(unsigned int amount);
 	void	beRepaired(unsigned int amount);

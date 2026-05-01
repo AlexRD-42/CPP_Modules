@@ -5,41 +5,64 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: adeimlin <adeimlin@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/22 14:38:23 by adeimlin          #+#    #+#             */
-/*   Updated: 2026/04/22 18:32:05 by adeimlin         ###   ########.fr       */
+/*   Created: 2026/05/01 17:50:30 by adeimlin          #+#    #+#             */
+/*   Updated: 2026/05/01 17:50:31 by adeimlin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string>
-#include <iostream>
 #include "ScavTrap.hpp"
+#include <iostream>
 
-ScavTrap::ScavTrap(std::string _name) :
-	ClapTrap(_name)
+ScavTrap::ScavTrap() :
+	ClapTrap("Default")
 {
 	health = 100;
 	stamina = 50;
 	damage = 20;
-	std::cout << "(ScavTrap) " << _name << " constructor has been called\n";
+	std::cout << "(ScavTrap) " << name << " default constructor has been called" << std::endl;
+}
+
+ScavTrap::ScavTrap(std::string input_name) :
+	ClapTrap(input_name)
+{
+	health = 100;
+	stamina = 50;
+	damage = 20;
+	std::cout << "(ScavTrap) " << name << " constructor has been called" << std::endl;
+}
+
+ScavTrap::ScavTrap(const ScavTrap& other) :
+	ClapTrap(other)
+{
+	std::cout << "(ScavTrap) " << name << " copy constructor has been called" << std::endl;
+}
+
+ScavTrap&	ScavTrap::operator=(const ScavTrap& other)
+{
+	if (this != &other)
+		ClapTrap::operator=(other);
+	std::cout << "(ScavTrap) " << name << " copy assignment operator has been called" << std::endl;
+	return (*this);
 }
 
 ScavTrap::~ScavTrap()
 {
-	std::cout << "(ScavTrap) " << name << " destructor has been called\n";
+	std::cout << "(ScavTrap) " << name << " destructor has been called" << std::endl;
 }
 
 void	ScavTrap::attack(const std::string& target)
 {
 	if (health == 0 || stamina == 0)
+	{
+		std::cout << "(ScavTrap) " << name << " cannot attack" << std::endl;
 		return ;
+	}
 	stamina--;
-	std::cout << "(ScavTrap) " << name << " kicks " << target << ", causing " << damage << " damage\n";
+	std::cout << "ScavTrap " << name << " kicks " << target
+		<< ", causing " << damage << " points of damage!" << std::endl;
 }
 
 void	ScavTrap::guardGate()
 {
-	if (health == 0 || stamina == 0)
-		return ;
-	stamina--;
-	std::cout << "(ScavTrap) " << name << " is now in Gate Keeper mode!\n";
+	std::cout << "ScavTrap " << name << " is now in Gate Keeper mode!" << std::endl;
 }

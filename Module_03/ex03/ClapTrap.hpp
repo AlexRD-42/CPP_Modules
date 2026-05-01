@@ -5,15 +5,15 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: adeimlin <adeimlin@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/22 13:08:33 by adeimlin          #+#    #+#             */
-/*   Updated: 2026/05/01 17:21:43 by adeimlin         ###   ########.fr       */
+/*   Created: 2026/05/01 17:50:03 by adeimlin          #+#    #+#             */
+/*   Updated: 2026/05/01 17:50:04 by adeimlin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CLAPTRAP_HPP
 # define CLAPTRAP_HPP
 
-#include <string>
+# include <string>
 
 class ClapTrap
 {
@@ -24,8 +24,12 @@ protected:
 	unsigned int	damage;
 
 public:
-	ClapTrap(std::string _name);
+	ClapTrap();
+	ClapTrap(std::string input_name);
+	ClapTrap(const ClapTrap& other);
+	ClapTrap&	operator=(const ClapTrap& other);
 	~ClapTrap();
+
 	void	attack(const std::string& target);
 	void	takeDamage(unsigned int amount);
 	void	beRepaired(unsigned int amount);

@@ -5,31 +5,29 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: adeimlin <adeimlin@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/22 13:28:18 by adeimlin          #+#    #+#             */
-/*   Updated: 2026/05/01 17:30:43 by adeimlin         ###   ########.fr       */
+/*   Created: 2026/05/01 17:49:13 by adeimlin          #+#    #+#             */
+/*   Updated: 2026/05/01 17:49:16 by adeimlin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string>
 #include <iostream>
 #include "ClapTrap.hpp"
 #include "ScavTrap.hpp"
 
 int	main(void)
 {
-	{
-		ScavTrap bob("Bob");
-		bob.takeDamage(10);
-		bob.beRepaired(10);
-		bob.attack("Martin");
-		bob.guardGate();
-	}
+	ClapTrap	clap("Clappy");
+	ScavTrap	bob("Bob");
+	ScavTrap	copy(bob);
+	ScavTrap	assigned;
 
-	// ScavTrap steve("Steve");
-
-	// for (size_t i = 0; i < 20; i++)
-	// 	steve.attack("Bob");
-	// std::cout << "Massive Steve combo! And he tries to swing again aaaaand:\n";
-	// steve.attack("Bob");
-	// std::cout << "If an attack was printed im in trouble\n";
+	assigned = bob;
+	clap.attack("target");
+	bob.attack("Martin");
+	bob.takeDamage(10);
+	bob.beRepaired(10);
+	bob.guardGate();
+	copy.takeDamage(100);
+	copy.attack("Martin");
+	return (0);
 }

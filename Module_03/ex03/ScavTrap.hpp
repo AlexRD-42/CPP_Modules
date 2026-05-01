@@ -5,22 +5,26 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: adeimlin <adeimlin@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/22 14:36:09 by adeimlin          #+#    #+#             */
-/*   Updated: 2026/04/27 12:35:46 by adeimlin         ###   ########.fr       */
+/*   Created: 2026/05/01 17:50:34 by adeimlin          #+#    #+#             */
+/*   Updated: 2026/05/01 17:50:35 by adeimlin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SCAVTRAP_HPP
 # define SCAVTRAP_HPP
 
-#include <string>
-#include "ClapTrap.hpp"
+# include <string>
+# include "ClapTrap.hpp"
 
 class ScavTrap : virtual public ClapTrap
 {
 public:
+	ScavTrap();
 	ScavTrap(std::string input_name);
+	ScavTrap(const ScavTrap& other);
+	ScavTrap&	operator=(const ScavTrap& other);
 	~ScavTrap();
+
 	void	attack(const std::string& target);
 	void	guardGate();
 };
