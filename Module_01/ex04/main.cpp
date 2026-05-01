@@ -6,7 +6,7 @@
 /*   By: adeimlin <adeimlin@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/15 15:14:49 by adeimlin          #+#    #+#             */
-/*   Updated: 2026/04/16 14:54:25 by adeimlin         ###   ########.fr       */
+/*   Updated: 2026/05/01 15:22:23 by adeimlin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ void	stt_replace(std::string &file_string, std::string &s1, std::string &s2)
 	{
 		file_string.erase(index, s1.length());
 		file_string.insert(index, s2);
+		index += s2.length();
 		index = file_string.find(s1, index);
 	}
 }

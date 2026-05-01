@@ -6,7 +6,7 @@
 /*   By: adeimlin <adeimlin@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/06 16:02:43 by adeimlin          #+#    #+#             */
-/*   Updated: 2026/04/15 15:39:12 by adeimlin         ###   ########.fr       */
+/*   Updated: 2026/05/01 15:11:53 by adeimlin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ int	main()
 	{
 		Zombie steve("steve the first");
 	}
+	johnson->announce();
 	delete johnson;
 	randomChump("dummy");
 	return (0);

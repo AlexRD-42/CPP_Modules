@@ -1,61 +1,25 @@
-# Style Guidelines
-Class/Struct names:	PascalCase
-Booleans: 			Predicate names like is_visible, has_focus, can_jump
+# Proper C++
+ClassName() = default;
+	Calls the default constructor
 
-`k_` — Constant Variable
-`g_` — Global variable
-`s_` — Static variable or function
-`m_` — Non-static class member variable
+ClassName() = delete;
+	Forbids this constructor
 
-`x_` — Local static variable
-`e_` — Enumerated constant type
-`t_` — Template argument
 
-stt_ = static
-stf_ = static filescope
+# 42 C++
+ClassName() {};
+	Omitting the constructor would be the alternative
 
-# Different types
-Static:
-	Variable (function scope)
-	Variable (global scope)
-	Variable (class scope)
-	Function
+private: ClassName();
+	Forbids this constructor
 
-Attribute	(Public)
-Attribute	(Private)
-Variable	(Function parameter)
-Variable	(Function variable)
-Variable	(Constant):
+# To Remember:
+virtual ~ClassName();
+	Makes it so derived classes call Derived > Base destructors
+	Without this, calling delete on a base class type would only invoke the base destructor
 
-Class name
-Enums
-
-# Modern Hungarian Notation
-The goal of this is to encode meaningful semantic information onto the variable, without adding too much noise
-
-Axioms:
-- s_, m_ and g_ prefixes are commonly used in codebases
-- k is hard to encode because it can be part of all prefixes
-
-I think the best approach might be to combine common underscore prefixes with regular prefixes to encode additional information
-For example, `g_kVar` is better than `gkVar`
-
-The problem is with combining them. Assume we have k_ prefixes for constant and s_ prefixes for static. What happens for a static const?
-Is it `sk_var`? that looks weird because all prefixes are generally one letter
-
-I think scope prefixes are high value, 
-`g_` Global variable
-`s_` Static variable or function
-
-## Primitives:
-`b` : bool				: Could be identified instead with predicates like has_ is_ can_
-what is better, `is_visible`, `bVisible` or `isVisible`?
-`u`: unsigned integer	: Could be default to reduce pollution
-`i`: signed integer		:
-`f`: floating-point
-
-## Semantic
-n: count (presumed unsigned)
-k: constant
-
-`sm_knItems`
+virtual int method() const = 0;
+	Pure virtual function
+	Makes it so derived classes have to override method() in order to instantiate the class
+	Turns it into an abstract class, can no longer be instantiated
+	int is just a placeholder, can be any type

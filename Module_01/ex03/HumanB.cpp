@@ -6,7 +6,7 @@
 /*   By: adeimlin <adeimlin@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/15 20:01:08 by adeimlin          #+#    #+#             */
-/*   Updated: 2026/04/16 13:46:47 by adeimlin         ###   ########.fr       */
+/*   Updated: 2026/05/01 15:18:55 by adeimlin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ HumanB::HumanB(std::string name) :
 
 void HumanB::attack()
 {
+	if (weapon_ == NULL)
+		return;
 	std::cout << name_ << " attacks with their " << weapon_->getType() << "\n";
 }
 

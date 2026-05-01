@@ -1,28 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.hpp                                         :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adeimlin <adeimlin@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/15 15:10:31 by adeimlin          #+#    #+#             */
-/*   Updated: 2026/05/01 15:40:34 by adeimlin         ###   ########.fr       */
+/*   Created: 2026/05/01 15:13:20 by adeimlin          #+#    #+#             */
+/*   Updated: 2026/05/01 15:14:38 by adeimlin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
-#include <string>
+#include "Zombie.hpp"
 
-class Zombie
+Zombie* zombieHorde(int N, std::string name);
+
+int	main()
 {
-public: 
-	Zombie();
-	Zombie(std::string name);
-	~Zombie();
+	Zombie	*horde = zombieHorde(5, "Bob");
 
-private:
-	std::string	name;
-public:
-	void announce(void);
-	void setName(std::string name);
-};
+	for (int i = 0; i < 5; i++)
+		horde[i].announce();
+	delete[] horde;
+}

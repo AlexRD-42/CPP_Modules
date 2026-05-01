@@ -6,7 +6,7 @@
 /*   By: adeimlin <adeimlin@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/15 15:14:49 by adeimlin          #+#    #+#             */
-/*   Updated: 2026/04/15 19:59:31 by adeimlin         ###   ########.fr       */
+/*   Updated: 2026/05/01 15:17:57 by adeimlin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,10 @@ int	main()
 	std::string	&stringREF = str;
 
 	std::cout << "Variable address:\t" << &str << std::endl;
-	std::cout << "Pointer address:\t" << &stringPTR << std::endl;
+	std::cout << "Pointer address:\t" << stringPTR << std::endl;
 	std::cout << "Reference address:\t" << &stringREF << std::endl;
 
-	std::cout << "Variable address:\t" << str << std::endl;
-	std::cout << "Pointer address:\t" << stringPTR << std::endl;
-	std::cout << "Reference address:\t" << stringREF << std::endl;
+	std::cout << "Variable value:\t" << str << std::endl;
+	std::cout << "Pointer value:\t" << *stringPTR << std::endl;
+	std::cout << "Reference value:\t" << stringREF << std::endl;
 }

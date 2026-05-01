@@ -1,5 +1,5 @@
 # Configuration ------------------------------- #
-NAME = main
+NAME = harlFilter
 VPATH = 
 SRCS = main.cpp Harl.cpp
 LDLIBS = 
@@ -9,13 +9,13 @@ RM := rm -f
 BUILD_PATH = build
 INC_PATH = 
 OBJ_PATH = $(BUILD_PATH)/obj
-BIN = $(NAME)
+BIN = build/$(NAME)
 OBJS = $(addprefix $(OBJ_PATH)/, $(SRCS:.cpp=.o))
 
 # Flags --------------------------------------- #
 CXX = clang++
 CPPFLAGS = $(addprefix -I,$(INC_PATH))
-CXXFLAGS = -Wall -Wextra -std=c++98
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 LDFLAGS =
 DEBUG = -g -Wpedantic -Wcast-qual -Wfloat-equal -Wswitch-default -Wsign-conversion
 ASAN = -fsanitize=address,undefined,leak -fno-omit-frame-pointer
