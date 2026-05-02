@@ -1,34 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Point.hpp                                          :+:      :+:    :+:   */
+/*   bsp.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adeimlin <adeimlin@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/20 10:37:48 by adeimlin          #+#    #+#             */
-/*   Updated: 2026/05/02 14:58:51 by adeimlin         ###   ########.fr       */
+/*   Created: 2026/04/17 15:55:16 by adeimlin          #+#    #+#             */
+/*   Updated: 2026/05/01 16:30:04 by adeimlin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef POINT_HPP
-# define POINT_HPP
+#include "Point.hpp"
 
-#include "Fixed.hpp"
-#include <stdint.h>
-
-class Point
+bool bsp(Point const a, Point const b, Point const c, Point const point)
 {
-private:
-	const Fixed	x, y;
-
-public:
-	Point();
-	Point(float x, float y);
-	Point(const Point& other);
-	~Point();
-
-	Point&			operator=(const Point& other);
-	static int64_t	cross(const Point &p0, const Point &p1, const Point &target);
-};
-
-#endif
+	return (Point::_bsp(a, b, c, point));
+}

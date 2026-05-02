@@ -6,7 +6,7 @@
 /*   By: adeimlin <adeimlin@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/20 10:37:26 by adeimlin          #+#    #+#             */
-/*   Updated: 2026/05/01 17:03:59 by adeimlin         ###   ########.fr       */
+/*   Updated: 2026/05/02 15:01:01 by adeimlin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,62 +36,19 @@ Point::Point(const Point& other) :
 // But if the values are const how are they reassigned?
 Point&	Point::operator=(const Point& other)
 {
-	(void) other;
+	if (this != &other)
+		(void) other;
 	return (*this);
 }
 
-int32_t	Point::lerp(const Point &p0, const Point &p1, int32_t xt)
+int64_t	Point::cross(const Point &p0, const Point &p1, const Point &target)
 {
-	const int32_t	x0 = p0.x.getRawBits();
-	const int32_t	y0 = p0.y.getRawBits();
-	const int32_t	dy = p1.y.getRawBits() - y0;
-	const int32_t	dx = p1.x.getRawBits() - x0;
-	int64_t			yt;
-	int64_t			k;
+	const int64_t ax = p0.x.getRawBits();
+	const int64_t ay = p0.y.getRawBits();
+	const int64_t bx = p1.x.getRawBits();
+	const int64_t by = p1.y.getRawBits();
+	const int64_t tx = target.x.getRawBits();
+	const int64_t ty = target.y.getRawBits();
 
-	k = y0 - ((int64_t)dy * x0) / dx;
-	yt = ((int64_t)xt * dy) / dx + k;
-	return ((int32_t) yt);
-}
-
-bool	Point::within_dx(const Point &p0, const Point &p1, const Point &target)
-{
-	const int32_t	xt = target.x.getRawBits();
-	const int32_t	x0 = p0.x.getRawBits();
-	const int32_t	x1 = p1.x.getRawBits();
-
-	return (xt > MIN(x0, x1) && xt < MAX(x0, x1));
-}
-
-// This is so stupid. Because they force the variables to be private, you can't access raw bits
-// directly, so you'd have to create the getter of a getter and I refuse to do that.
-// Instead I create a method bsp so you get direct access to the private members, so some form of sanity is preserved
-bool	Point::_bsp(Point const a, Point const b, Point const c, Point const point)
-{
-	const int32_t	xt = point.x.getRawBits();
-	const int32_t	yt = point.y.getRawBits();
-	int32_t			y[2];
-	size_t			count;
-
-	count = 0;
-	if (Point::within_dx(a, b, point))
-	{
-		y[count] = Point::lerp(a, b, xt);
-		count++;
-	}
-	if (Point::within_dx(b, c, point))
-	{
-		y[count] = Point::lerp(b, c, xt);
-		count++;
-	}
-	if (Point::within_dx(a, c, point))
-	{
-		if (count != 1)
-			return (false);
-		y[count] = Point::lerp(a, c, xt);
-		count++;
-	}
-	if (count != 2)
-		return (false);
-	return (yt > MIN(y[0], y[1]) && yt < MAX(y[0], y[1]));
+	return ((bx - ax) * (ty - ay) - (by - ay) * (tx - ax));
 }
