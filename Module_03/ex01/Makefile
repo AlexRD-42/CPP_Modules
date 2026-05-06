@@ -13,7 +13,7 @@ BIN = build/$(NAME)
 OBJS = $(addprefix $(OBJ_PATH)/, $(SRCS:.cpp=.o))
 
 # Flags --------------------------------------- #
-CXX = c++
+CXX = clang++
 CPPFLAGS = $(addprefix -I,$(INC_PATH))
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 LDFLAGS =

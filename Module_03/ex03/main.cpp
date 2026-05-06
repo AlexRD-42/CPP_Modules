@@ -6,11 +6,10 @@
 /*   By: adeimlin <adeimlin@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/01 17:50:25 by adeimlin          #+#    #+#             */
-/*   Updated: 2026/05/01 17:50:27 by adeimlin         ###   ########.fr       */
+/*   Updated: 2026/05/04 23:20:17 by adeimlin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
 #include "DiamondTrap.hpp"
 
 int	main(void)

@@ -6,7 +6,7 @@
 /*   By: adeimlin <adeimlin@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/01 17:48:59 by adeimlin          #+#    #+#             */
-/*   Updated: 2026/05/01 17:49:00 by adeimlin         ###   ########.fr       */
+/*   Updated: 2026/05/04 23:12:18 by adeimlin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,5 @@ int	main(void)
 		steve.attack("Bob");
 	std::cout << "Massive Steve combo! And he tries to swing again aaaaand:\n";
 	steve.attack("Bob");
-	std::cout << "If an attack was printed im in trouble\n";
+	std::cout << "If an attack was printed i am in trouble\n";
 }

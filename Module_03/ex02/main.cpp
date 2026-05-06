@@ -6,11 +6,10 @@
 /*   By: adeimlin <adeimlin@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/01 17:49:48 by adeimlin          #+#    #+#             */
-/*   Updated: 2026/05/01 17:49:49 by adeimlin         ###   ########.fr       */
+/*   Updated: 2026/05/04 23:20:25 by adeimlin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
 #include "ScavTrap.hpp"
 #include "FragTrap.hpp"
 

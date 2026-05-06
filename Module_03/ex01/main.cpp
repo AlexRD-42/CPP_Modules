@@ -6,11 +6,10 @@
 /*   By: adeimlin <adeimlin@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/01 17:49:13 by adeimlin          #+#    #+#             */
-/*   Updated: 2026/05/01 17:49:16 by adeimlin         ###   ########.fr       */
+/*   Updated: 2026/05/04 23:12:28 by adeimlin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
 #include "ClapTrap.hpp"
 #include "ScavTrap.hpp"
 
