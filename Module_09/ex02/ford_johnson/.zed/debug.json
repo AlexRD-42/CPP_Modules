@@ -1,0 +1,23 @@
+// Project-local debug tasks
+//
+// For more documentation on how to configure debug tasks,
+// see: https://zed.dev/docs/debugger
+[
+	{
+		"label": "Debug Executable (LLDB)",
+		"adapter": "CodeLLDB",
+		"request": "launch",
+		"cwd": "$ZED_DIRNAME",
+		"program": "$ZED_DIRNAME/build/main",
+		"args": [],
+		"env": {
+			"LSAN_OPTIONS": "detect_leaks=0",
+		},
+		"stopOnEntry": false,
+		"build": {
+			"command": "make",
+			"args": ["compdb"],
+			"cwd": "$ZED_DIRNAME",
+		},
+	},
+]
