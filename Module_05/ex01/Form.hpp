@@ -10,7 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
+#ifndef EX01_FORM_HPP
+#define EX01_FORM_HPP
 
 #include <string>
 #include <ostream>
@@ -52,3 +53,5 @@ private:
 };
 
 std::ostream& operator<<(std::ostream& os, const Form& form);
+
+#endif

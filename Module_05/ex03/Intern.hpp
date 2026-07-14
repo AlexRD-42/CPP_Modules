@@ -10,7 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
+#ifndef EX03_INTERN_HPP
+#define EX03_INTERN_HPP
 
 #include <string>
 
@@ -31,3 +32,5 @@ private:
 	AForm* createRobotomyRequestForm(const std::string& target) const;
 	AForm* createPresidentialPardonForm(const std::string& target) const;
 };
+
+#endif

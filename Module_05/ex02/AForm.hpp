@@ -10,7 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
+#ifndef EX02_AFORM_HPP
+#define EX02_AFORM_HPP
 
 #include <string>
 #include <ostream>
@@ -23,7 +24,7 @@ class AForm
 public: // Canonical Form and Constructors
 	AForm();
 	AForm(const std::string &name, int signGrade, int execGrade);
-	~AForm();
+	virtual ~AForm();
 	AForm(const AForm &other);
 	AForm& operator=(const AForm &other);
 
@@ -61,3 +62,5 @@ private:
 };
 
 std::ostream& operator<<(std::ostream& os, const AForm& form);
+
+#endif

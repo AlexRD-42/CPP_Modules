@@ -10,7 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
+#ifndef EX02_PRESIDENTIALPARDONFORM_HPP
+#define EX02_PRESIDENTIALPARDONFORM_HPP
 
 #include "AForm.hpp"
 #include <string>
@@ -28,3 +29,5 @@ private:
 
 	void	executeAction() const;
 };
+
+#endif

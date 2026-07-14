@@ -10,12 +10,13 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
+#ifndef EX01_BUREAUCRAT_HPP
+#define EX01_BUREAUCRAT_HPP
 #include <string>
 #include <exception>
 #include <ostream>
 
-class AForm;
+class Form;
 
 class Bureaucrat
 {
@@ -30,7 +31,7 @@ public: // Canonical Form and Constructors
 	int	getGrade() const;
 	void incrementGrade();
 	void decrementGrade();
-	bool signForm(AForm &form);
+	void signForm(Form &form);
 
 	class GradeTooHighException : public std::exception
 	{
@@ -50,3 +51,5 @@ private:
 };
 
 std::ostream& operator<<(std::ostream& os, const Bureaucrat& bureaucrat);
+
+#endif

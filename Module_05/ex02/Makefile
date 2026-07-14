@@ -1,7 +1,7 @@
 # Configuration ------------------------------- #
 NAME = main
 VPATH = 
-SRCS = main.cpp AMateria.cpp Character.cpp Cure.cpp Ice.cpp MateriaSource.cpp
+SRCS = main.cpp Bureaucrat.cpp AForm.cpp ShrubberyCreationForm.cpp RobotomyRequestForm.cpp PresidentialPardonForm.cpp
 LDLIBS = 
 
 # Defaults ------------------------------------ #
@@ -13,7 +13,7 @@ BIN = build/$(NAME)
 OBJS = $(addprefix $(OBJ_PATH)/, $(SRCS:.cpp=.o))
 
 # Flags --------------------------------------- #
-CXX = clang++
+CXX = c++
 CPPFLAGS = $(addprefix -I,$(INC_PATH))
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 LDFLAGS =

@@ -10,7 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
+#ifndef EX00_BUREAUCRAT_HPP
+#define EX00_BUREAUCRAT_HPP
 #include <string>
 #include <exception>
 #include <ostream>
@@ -47,3 +48,5 @@ private:
 };
 
 std::ostream& operator<<(std::ostream& os, const Bureaucrat& bureaucrat);
+
+#endif

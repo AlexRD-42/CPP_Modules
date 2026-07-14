@@ -108,7 +108,7 @@ Form& Form::operator=(const Form &other)
 {
 	if (this != &other)
 	{
-		// this->m_signed = other.m_signed;
+		this->m_signed = other.m_signed;
 	}
 	return (*this);
 }
