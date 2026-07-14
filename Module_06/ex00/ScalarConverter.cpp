@@ -6,7 +6,7 @@
 /*   By: adeimlin <adeimlin@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/10 14:46:07 by adeimlin          #+#    #+#             */
-/*   Updated: 2026/06/15 16:44:19 by adeimlin         ###   ########.fr       */
+/*   Updated: 2026/07/14 11:30:35 by adeimlin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include <iostream>
 #include <string>
 #include <limits>
+#include <cstdlib>
 
 static inline
 bool s_isSpecial(const std::string &s)

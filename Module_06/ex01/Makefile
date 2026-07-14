@@ -1,7 +1,7 @@
 # Configuration ------------------------------- #
 NAME = main
 VPATH = 
-SRCS = main.cpp
+SRCS = main.cpp Serializer.cpp
 LDLIBS = 
 
 # Defaults ------------------------------------ #
@@ -13,7 +13,7 @@ BIN = build/$(NAME)
 OBJS = $(addprefix $(OBJ_PATH)/, $(SRCS:.cpp=.o))
 
 # Flags --------------------------------------- #
-CXX = clang++
+CXX = c++
 CPPFLAGS = $(addprefix -I,$(INC_PATH))
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 LDFLAGS =
