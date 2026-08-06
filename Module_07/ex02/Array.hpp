@@ -6,7 +6,7 @@
 /*   By: adeimlin <adeimlin@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/29 12:56:31 by adeimlin          #+#    #+#             */
-/*   Updated: 2026/06/29 13:41:40 by adeimlin         ###   ########.fr       */
+/*   Updated: 2026/08/06 11:42:49 by adeimlin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,10 +36,7 @@ public: // Canonical Form and Constructors
 			arrayPtr = NULL;
 		else
 		{
-			arrayPtr = new Type[n];
-			// memset(arrayPtr, 0, sizeof(Type) * length);
-			for (size_t i = 0; i < length; i++)
-				arrayPtr[i] = 0;
+			arrayPtr = new Type[n]();
 		}
 	}
 
@@ -53,19 +50,20 @@ public: // Canonical Form and Constructors
 
 	~Array()
 	{
-		delete arrayPtr;
+		delete[] arrayPtr;
 	}
 
 	Array& operator=(const Array &other)
 	{
 		if (this != &other)
 		{
-			delete this->arrayPtr;
+			delete[] this->arrayPtr;
 			this->arrayPtr = NULL;
-			this->length = other.length;
+			this->length = 0;
 			if (other.length == 0)
 				return *this;
-			this->arrayPtr = new Type[this->length];
+			this->arrayPtr = new Type[other.length];
+			this->length = other.length;
 			for (size_t i = 0; i < length; i++)
 				arrayPtr[i] = other.arrayPtr[i];
 		}

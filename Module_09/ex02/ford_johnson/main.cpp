@@ -3,7 +3,7 @@
 #include <iostream>
 #define ARRAY_LENGTH 7
 
-int main()
+int main(int argc, char **argv)
 {
 	i32 array[ARRAY_LENGTH] = {38, 27, 43, 3, 9, 82, 10};
 	i32 buffer[ARRAY_LENGTH];

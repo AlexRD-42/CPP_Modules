@@ -9,7 +9,7 @@
 		"request": "launch",
 		"cwd": "$ZED_DIRNAME",
 		"program": "$ZED_DIRNAME/build/main",
-		"args": [],
+		"args": ["10, 10, 20"],
 		"env": {
 			"LSAN_OPTIONS": "detect_leaks=0",
 		},

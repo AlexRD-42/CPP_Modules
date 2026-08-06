@@ -6,10 +6,11 @@
 /*   By: adeimlin <adeimlin@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/29 11:52:20 by adeimlin          #+#    #+#             */
-/*   Updated: 2026/06/29 12:54:54 by adeimlin         ###   ########.fr       */
+/*   Updated: 2026/08/06 11:32:53 by adeimlin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#pragma once
 #include <cstddef>
 #include <iostream>
 

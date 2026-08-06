@@ -6,7 +6,7 @@
 /*   By: adeimlin <adeimlin@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/10 14:46:07 by adeimlin          #+#    #+#             */
-/*   Updated: 2026/07/14 11:30:35 by adeimlin         ###   ########.fr       */
+/*   Updated: 2026/08/06 11:22:22 by adeimlin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,53 +71,92 @@ bool s_isValid(const char *start, const char *end)
 static
 void s_printChar(double value)
 {
-	if (value < std::numeric_limits<char>::min())
-		std::cout << "char: underflows\n";
-	else if (value > std::numeric_limits<char>::max())
-		std::cout << "char: overflows\n";
+	if (value != value) {
+		std::cout << "char: impossible\n";
+		return;
+	}
+
+	bool isImpossible = 
+		value < std::numeric_limits<char>::min() 
+		|| value > std::numeric_limits<char>::max();
+
+	if (isImpossible)
+		std::cout << "char: impossible\n";
 	else if (!std::isprint(static_cast<char>(value)))
 		std::cout << "char: Non displayable\n";
 	else
 		std::cout << "char: '" << static_cast<char>(value) << "'\n";
 }
 
-static
-void s_printInt(double value)
+static void s_printInt(double value)
 {
-	if (value < std::numeric_limits<int>::min())
-		std::cout << "int: underflows\n";
-	else if (value > std::numeric_limits<int>::max())
-		std::cout << "int: overflows\n";
+	static const double min = std::numeric_limits<int>::min() - 1.0;
+	static const double max = std::numeric_limits<int>::max() + 1.0;
+
+	if (value != value)
+	{
+		std::cout << "int: impossible\n";
+		return;
+	}
+
+	if (value <= min || value >= max)
+		std::cout << "int: impossible\n";
 	else
 		std::cout << "int: " << static_cast<int>(value) << "\n";
 }
 
 static
+void s_printHelper(double value)
+{
+	std::ios::fmtflags oldFlags = std::cout.flags();
+	std::cout << std::fixed << "double: " << value << "\n";
+	std::cout.flags(oldFlags);
+}
+
+static
+void s_printHelper(float value)
+{
+	std::ios::fmtflags oldFlags = std::cout.flags();
+	std::cout << std::fixed << "float: " << value << "f\n";
+	std::cout.flags(oldFlags);
+}
+
+static
 void s_printFloat(double value)
 {
-	std::cout << "float: " << static_cast<float>(value);
+	if (value != value) {
+		std::cout << "float: nanf\n";
+		return;
+	}
 
-	if (value == std::floor(value))
-		std::cout << ".0f\n";
+	if (value < -std::numeric_limits<float>::max())
+		std::cout << "float: -inff\n";
+	else if (value > std::numeric_limits<float>::max())
+		std::cout << "float: +inff\n";
 	else
-		std::cout << "f\n";
+		s_printHelper(static_cast<float>(value));
 }
 
 static
 void s_printDouble(double value)
 {
-	std::cout << "double: " << value;
+	if (value != value) {
+		std::cout << "double: nan\n";
+		return;
+	}
 
-	if (value == std::floor(value))
-		std::cout << ".0\n";
+	if (value < -std::numeric_limits<double>::max())
+		std::cout << "double: -inf\n";
+	else if (value > std::numeric_limits<double>::max())
+		std::cout << "double: +inf\n";
 	else
-		std::cout << "\n";
+		s_printHelper(value);
 }
 
 // === Methods ================================================================
 void ScalarConverter::convert(const std::string &literal)
 {
-	double	value = 0.0;
+	double value = 0.0;
 
 	if (s_isSpecial(literal))
 		return ;
