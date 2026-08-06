@@ -10,13 +10,13 @@ void swap(Type &x, Type &y)
 }
 
 template <typename Type>
-Type min(Type &x, Type &y)
+const Type& min(const Type &x, const Type &y)
 {
 	return (x < y ? x : y);
 }
 
 template <typename Type>
-Type max(Type &x, Type &y)
+const Type& max(const Type &x, const Type &y)
 {
 	return (x > y ? x : y);
 }

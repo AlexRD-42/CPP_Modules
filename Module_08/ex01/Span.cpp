@@ -1,4 +1,5 @@
 #include "Span.hpp"
+#include <limits>
 
 // === Methods ================================================================
 void Span::addNumber(int number)
@@ -12,11 +13,18 @@ void Span::addNumber(int number)
 
 void Span::addNumber(int number, unsigned int count)
 {
-	if (data.size() + count >= max_size)
+	if (count > max_size - data.size())
 		throw std::out_of_range("Out of range");
 
 	data.insert(data.end(), count, number);
 	isSorted = false;
+}
+
+void Span::addNumber(int number, int count)
+{
+	if (count < 0)
+		throw std::out_of_range("Out of range");
+	addNumber(number, static_cast<unsigned int>(count));
 }
 
 static inline
@@ -35,7 +43,7 @@ bool s_span(std::vector<int> &data, bool isSorted)
 
 size_t Span::shortestSpan()
 {
-	size_t	min = SIZE_MAX;
+	size_t	min = std::numeric_limits<size_t>::max();
 	size_t	delta;
 
 	isSorted = s_span(data, isSorted);
@@ -51,33 +59,29 @@ size_t Span::shortestSpan()
 
 size_t Span::longestSpan()
 {
-	size_t	max = 0;
-	size_t	delta;
-
 	isSorted = s_span(data, isSorted);
-	const size_t length = data.size() - 1;
-
-	for (size_t i = 0; i < length; i++)
-	{
-		delta = (size_t) data[i + 1] - (size_t) data[i];
-		if (delta > max)
-			max = delta;
-	}
-	return (max);
+	return (static_cast<size_t>(data.back()) - static_cast<size_t>(data.front()));
 }
 
 // === Canonical Form and Constructors ========================================
 Span::Span() :
+	isSorted(false),
 	data(0),
-	max_size(0),
-	isSorted(false)
+	max_size(0)
+{
+}
+
+Span::Span(unsigned int N) :
+	isSorted(false),
+	data(0),
+	max_size(N)
 {
 }
 
 Span::Span(const Span &other) :
+	isSorted(other.isSorted),
 	data(other.data),
-	max_size(other.max_size),
-	isSorted(other.isSorted)
+	max_size(other.max_size)
 {
 }
 
@@ -89,6 +93,7 @@ Span& Span::operator=(const Span &other)
 {
 	if (this != &other)
 	{
+		this->isSorted = other.isSorted;
 		this->data = other.data;
 		this->max_size = other.max_size;
 	}

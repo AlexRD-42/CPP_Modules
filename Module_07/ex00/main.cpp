@@ -22,7 +22,7 @@ int main()
 		std::cout << "AB Values before swap: " << x << " , "<< y << "\n";
 		swap(x, y);
 		std::cout << "AB Values after swap: " << x << " , "<< y << "\n";
-		std::cout << "MIN, MAX: " << min(x, y) << " , "<< max(x, y) << "\n";
+		std::cout << "MIN, MAX: " << ::min(x, y) << " , "<< ::max(x, y) << "\n";
 	}
 	std::cout << "====================\n";
 	{
@@ -31,7 +31,7 @@ int main()
 		std::cout << "AB Values before swap: " << x << " , "<< y << "\n";
 		swap(x, y);
 		std::cout << "AB Values after swap: " << x << " , "<< y << "\n";
-		std::cout << "MIN, MAX: " << min(x, y) << " , "<< max(x, y) << "\n";
+		std::cout << "MIN, MAX: " << ::min(x, y) << " , "<< ::max(x, y) << "\n";
 	}
 	std::cout << "====================\n";
 	{
