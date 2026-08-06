@@ -1,7 +1,7 @@
 # Configuration ------------------------------- #
 NAME = main
 VPATH = 
-SRCS = main.cpp
+SRCS = main.cpp Span.cpp
 LDLIBS = 
 
 # Defaults ------------------------------------ #

@@ -6,9 +6,11 @@
 /*   By: adeimlin <adeimlin@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/30 11:11:39 by adeimlin          #+#    #+#             */
-/*   Updated: 2026/06/30 12:44:50 by adeimlin         ###   ########.fr       */
+/*   Updated: 2026/08/06 11:56:58 by adeimlin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#pragma once
 
 #include <algorithm>
 #include <stdexcept>
@@ -30,6 +32,7 @@ void print(T& data, int value)
 	try
 	{
 		typename T::iterator it = easyfind(data, value);
+		(void) it;
 		std::cout << value << " was found\n";
 	}
 	catch(const std::exception& e)
